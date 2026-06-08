@@ -1,3 +1,42 @@
+## Latest changes and summary of what has been done.
+
+##### Wednesday 22 April 2026
+
+### New
+
+- New script to see updates avaliable on the polybar module. [KaliUpdates.sh](https://github.com/Usergh0st/Machinepwn/blob/master/home/.config/bspwm/src/KaliUpdates.sh)
+    - [commit](https://github.com/Usergh0st/Machinepwn/commit/a40b470e6ccae05943af66f6be18f9e04804c836)
+- New config of picom transparency now you have transparency windows on terminal, polybar, (etc)
+    - [commit](https://github.com/Usergh0st/Machinepwn/commit/bc489af43a8047427a727a85025bea16aaaf7cab)
+
+### Changes
+
+- Code refactoring and cleaning
+- Some changes in the polybar homebar and BarPwn
+- Fix zcompdump error paths
+- Fixed some error in script. [KaliUpdates.sh](https://github.com/Usergh0st/Machinepwn/blob/master/home/.config/bspwm/src/KaliUpdates.sh)
+- Some bug fixes and refactoring
+
+### Previews
+
+Here's a preview of how the environment is coming along, there are still many things missing. But they will be added little by little.
+
+- <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/2a68a996-5406-4f38-9e13-3a0aae08bc1f" />
+
+Update module; with this you can see how many packages you need to update.
+
+- <img width="40" height="28" alt="Image" src="https://github.com/user-attachments/assets/d55166b5-4ac4-44f0-bb5f-677942adfbd3" />
+
+### To-Do
+
+- Create local configuration with mpv and ncmpcpp.
+- Configure the Dunst notification daemon.
+- Create the installer for Arch-based distributions.
+- Improve and optimize the environment to be faster.
+- Explore some ideas and see which function to implement.
+
+---
+
 ## Annual update, improving the environment, adding features.
 
 ##### Sunday 11 January 2026
@@ -56,6 +95,8 @@ Finally, an overview of what the terminal looks like with powerlevel10k fzf and 
 - Create more conceptual menus for rofi.
 - Configure the bspwm external rules.
 
+---
+
 ## Adding more things and making some changes.
 
 ##### Wednesday 17 December 2025
@@ -103,6 +144,8 @@ Finally, a final look at how it's coming along; better things are coming.
 - Create script for the updates module polybar.
 - Create script for wallpapers selector.
 
+---
+
 ## Some changes and a change of topics, new color palette.
 
 ##### Thursday 26 October 2025
@@ -140,6 +183,8 @@ New rofi launcher apps.
 - Configure the Picom Transparency manager.
 - Create script for the updates module polybar.
 - Create script for wallpapers selector.
+
+---
 
 ## Start of the Machinepwn project, forming the desktop environment.
 
