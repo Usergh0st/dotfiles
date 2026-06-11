@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 # ========================================================================================
 # Author: Enríque González Aka (Usergh0st)
-# File: MonitorSetup.sh
-# Description: Dynamic multi-monitor support and configuration for bspwm using xrandr
 # Repository: https://github.com/Usergh0st/Machinepwn
-# Date: 18.03.2026
+# Mail: tsohg.uncork054@passinbox.com
+# Date: 10.06.2026 08:13 PM
+#
+# Description: Dynamic multi-monitor support and configuration for bspwm using xrandr
+# Features:
+#       ✔ Support multi-monitor
+#       ✔ Automatic resolution adjustment
+#
+# Dependencies:
+#   → xorg-xrandr
+#   → x11-xserver-utils
 #
 # Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>
 # Copyright (C) 2027-2027 Usergh0st <usergh0stmail@proton.me>

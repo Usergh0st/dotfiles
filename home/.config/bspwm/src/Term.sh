@@ -1,12 +1,11 @@
 #!/bin/sh
-# ==========================================================
+# =========================================================
 # Author: Enríque González Aka (Usergh0st)
 # Description: The term launcher dynamic.
-# File: Term.sh
 # Repository: https://github.com/Usergh0st/Machinepwn
-# Date: 18.03.2026
+# Date: 10.06.2026 08:19 PM
 # Licensed: under GPL-3 Licensed
-# ==========================================================
+# =========================================================
 
 # Check package managers
 if command -v nala >/dev/null 2>&1; then

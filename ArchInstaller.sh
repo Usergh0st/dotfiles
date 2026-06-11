@@ -32,16 +32,20 @@ Green="\e[1;32m"
 Red="\e[1;31m"
 Bold="\e[1m"
 
-# Utils variables | variables de utilidades
+# Another utils variables | otras variables utiles
 who_user=$(whoami)
+
+# Utils variables | variables de utilidades
 url_repo="https://github.com/Usergh0st/Machinepwn.git"
 zsh_sudo="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh"
 
 # List of packages to install | lista de paquetes a instalar
 pkgs_xorg="xorg-xrandr xorg-server xorg-xinit xorg-xsetroot xorg-xinput"
+
 pkgs_bspw="bspwm sxhkd rofi feh polybar neovim git fastfetch net-tools \
 	eza bat python-pywal less fzf thunar firefox picom rustup xclip \
-	papirus-icon-theme "
+	papirus-icon-theme"
+
 pkgs_anys="base-devel brightnessctl xdotool xsettingsd zsh zsh-autosuggestions \
 	zsh-syntax-highlighting"
 

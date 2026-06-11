@@ -1,10 +1,21 @@
 #!/usr/bin/env bash
 # ==========================================================================================
 # Author: Enríque González Aka (Usergh0st)
-# File: CustomResolution.sh
-# Description: Configure your own monitor resolution, in case the first one doesn't work.
 # Repository: https://github.com/Usergh0st/Machinepwn
-# Date: 18.03.2026
+# Mail: tsohg.uncork054@passinbox.com
+# Date: 10.06.2026 07:59 PM
+#
+# Description: Configure your own monitor resolution, in case the first one doesn't work.
+# Features:
+#       ✔ Set a custom screen resolution
+#
+# Dependencies:
+#   → xorg-xrandr
+#   → x11-xserver-utils
+#
+# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>
+# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>
+# Licensed under GPL-3.0 license
 # ==========================================================================================
 
 set -euo pipefail

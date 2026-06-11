@@ -9,12 +9,11 @@
 # |  __|  _  |     |   _|  ||  _  |
 # |____|_____|__|__|__| |__||___  |
 #                           |_____|
+#
+# Usergh0st - https://github.com/Usergh0st/Machinepwn.git
+# Description - alacritty configuration of machinepwn desktop
+# Date = 08.06.2026 10:02 PM
 # ============================================================
-
-# Alacritty config machinepwn...
-# Config support virtual machines...
-# Usergh0st = [ https://github.com/Usergh0st/Machinepwn.git ]
-# 16.12.2025 10:24 AM
 
 # Alacritty window how show configuration.
 # config =  [ https://alacritty.org/config-alacritty.html#window ]

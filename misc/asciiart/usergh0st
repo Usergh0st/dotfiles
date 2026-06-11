@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # =======================================================
-# Description: The (Usergh0st) asciiart
-# Repository: https://github.com/Usergh0st/Machinepwn
-# Date: 20.01.2026
 # Author: Usergh0st
+# Repository: https://github.com/Usergh0st/Ambassador.git
+# Mail: tsohg.uncork054@passinbox.com
+# Date: 08.06.2026 09:55 PM
 # =======================================================
 
 Cyan="\e[1;36m"

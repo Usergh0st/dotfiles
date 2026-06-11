@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # =========================================================
 # Author: Enríque González Aka (Usergh0st)
-# File: WallSelect.sh
 # Description: Simple script that sets a wallpaper.
 # Repository: https://github.com/Usergh0st/Machinepwn
-# Date: 18.03.2026
+# Date: 10.06.2026 08:22 PM
 # Licensed: under GPL-3 Licensed
 # =========================================================
 

@@ -1,10 +1,9 @@
 #!/bin/sh
 # ================================================
 # Author: Enríque González Aka (Usergh0st)
-# File: OpenApps.sh
 # Description: Control apps to launch.
 # Repository: https://github/Usergh0st/Machinepwn
-# Date: 18.03.2026
+# Date: 10.06.2026 08:17 PM
 # Licensed: under GPL-3 Licensed
 # ================================================
 

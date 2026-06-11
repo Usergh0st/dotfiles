@@ -1,20 +1,16 @@
 #!/bin/sh
-# ===========================================================================================
+# ====================================================================
 #  ______
 # |   __ \.-----.-----.--.--.--.--------.----.----.
 # |   __ <|__ --|  _  |  |  |  |        |   _|  __|
 # |______/|_____|   __|________|__|__|__|__| |____|
 #               |__|
-# Description: The central configuration file for bspwm largely controls how the environment looks.
-# Configure this to your liking, dear user.
-# Author: Usergh0st
-# Repository: https://github.com/Usergh0st/Machinepwn.git
-# Mail: usergh0stmail@proton.me
-# Last Update: 25.12.2025 4:11 PM
 #
+# Usergh0st - https://github.com/Usergh0st/Machinepwn.git
+# Description - bspwmrc configuration rules and behavior of machinepwn
+# Date = 08.06.2026 10:02 PM
 # Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>
-# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>
-# ==========================================================================================
+# ====================================================================
 
 #  _______
 # |    ___|.-----.--.--.

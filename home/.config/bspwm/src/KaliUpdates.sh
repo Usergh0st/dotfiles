@@ -1,14 +1,19 @@
 #!/bin/sh
 # ==============================================================
 # Author: Enríque González Aka (Usergh0st)
-# File: KaliUpdates.sh
 # Repository: https://github.com/Usergh0st/Machinepwn
-# Date: 18.03.2026
+# Mail: tsohg.uncork054@passinbox.com
+# Date: 10.06.2026 08:09 PM
 #
 # Description: Script to check for new updates in kali linux
 # and sync updates module in polybar and others.
 #
+# Features:
+#       ✔ Shows available updates
+#       ✔ Update clock
+#
 # Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>
+# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>
 # Licensed under GPL-3.0 license
 # =============================================================
 

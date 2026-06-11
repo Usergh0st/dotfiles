@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # ======================================================
 # Author: Enríque González Aka (Usergh0st)
-# File: VPN.sh
 # Description: A simple script to show vpn conected.
 # Repository: https://github.com/Usergh0st/Machinepwn
-# Date: 12.03.2026
+# Date: 10.06.2026 08:20 PM
 # Licensed: under GPL-3 Licensed
 # ======================================================
 
