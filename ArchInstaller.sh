@@ -10,12 +10,12 @@
 # |_______||__|__|_____||____|___._||__|__||_____|__|
 
 # Author: Enríque González Aka (Usergh0st)
-# Repository: https://github.com/Usergh0st/Machinepwn.git
+# Repository: https://github.com/Usergh0st/Machinepwn
 # Mail: usergh0stmail@proton.me
-# Date: 26.01.2026 09:45 PM
+# Date: 13.06.2026 12:02 PM
 
 # Description: Arch linux installer script for machinepwn desktop
-# Environment, the installer only works in arch linux no others
+# environment the installer only works in arch linux no others
 # Distros and this script required root user passworld.
 
 # Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>
@@ -29,11 +29,13 @@ White="\e[1;37m"
 Blue="\e[1;34m"
 Reset="\e[0m"
 Green="\e[1;32m"
-Red="\e[1;31m"
+Yellow="\e[1;33m"
+LightRed="\e[1;31m"
 Bold="\e[1m"
 
 # Another utils variables | otras variables utiles
 who_user=$(whoami)
+os_name=$(grep -oP '(?<=^NAME=")[^"]*' /etc/os-release)
 
 # Utils variables | variables de utilidades
 url_repo="https://github.com/Usergh0st/Machinepwn.git"
@@ -54,7 +56,7 @@ logo () {
   export LC_ALL="${LC_ALL:-C.UTF-8}"
   export LANG="${LANG:-C.UTF-8}"
 
-  printf '%b' "${Bold}${Red}"
+  printf '%b' "${Bold}${LightRed}"
   cat <<'LOGO'
    ⠀⠀⠀⠀⠀⠀⠀⠄⠀⠰⡐⠀⠀⠀⠀⠀⠀⢀⣄⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
    ⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⣿⡆⠀⠀⠀⠄⠀⠈⢀⣤⣤⣬⣥⣤⣀⡀⠀⠀⠀⠂⠀⠑⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -84,7 +86,8 @@ LOGO
 # Fetch or traps ctrl_c | function para traquear el ctrl_c y salir.⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 trap ctrl_c INT
 function ctrl_c () {
-	echo -e "${LightRed} Exiting the script installer goodbye! ${Reset}\n"
+	echo ""
+	echo -e "${Yellow}[!] ${LightRed}Ending the installer session! ${Reset} \n"
 	exit 1
 }
 
@@ -96,10 +99,13 @@ Initial_checks () {
 
 		reser ; clear ; logo
 		
-		echo -e "${White} That's script must be executed from home directory ${Reset}"
-		echo -e "${White} Please move the script installer to your home directory ${Reset}"
-		echo -e "${White} And try run it again dear user ${Red}${who_user}${Reset}\n"
-		echo -e "${White} Your current directory: ${Red}"${PWD}"${Reset}"
+		echo -e "${Bold}${LightRed}                 [OS: ${Cyan}${os_name}${LightRed}] ${Reset} \n"
+		
+		echo -e "${Blue}[*] ${White}That's script must be executed from home directory ${Reset}" ; sleep 00.5
+		echo -e "${Yellow}[!] ${White}Please move the script installer to your home directory ${Reset}" ; sleep 00.5
+		echo -e "${Blue}[*] ${White}And try to run it again dear user: ${LightRed}(${who_user}) ${Reset}" ; sleep 00.5
+		echo -e "${Yellow}[!] ${White}Your current directory: ${LightRed}"${PWD}" ${Reset} \n" ; sleep 00.5
+		exit 1
 	fi
 }
 

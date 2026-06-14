@@ -12,12 +12,11 @@
 # Author: Enríque González Aka (Usergh0st)
 # Repository: https://github.com/Usergh0st/Machinepwn.git
 # Mail: usergh0stmail@proton.me
-# Date: 26.01.2026 09:49 PM
+# Date: 14.06.2026 08:47 AM
 
 # Description: Kali Linux installer script for machinepwn desktop
-# Environment, the installer script for machinepwn for kali linux
-# And debian based, only kali linux/debian avaliable installacion
-# No others distros this script required root user passworld.
+# environment the script only works in distributions based on
+# debian and this script required root user passaworld.
 
 # Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>
 # Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>
@@ -30,8 +29,13 @@ White="\e[1;37m"
 Blue="\e[1;34m"
 Reset="\e[0m"
 Green="\e[1;32m"
+Yellow="\e[1;33m"
 LightRed="\e[1;31m"
 Bold="\e[1m"
+
+# Another utils variables | otras variables utiles
+who_user=$(whoami)
+os_name=$(grep -oP '(?<=^NAME=")[^"]*' /etc/os-release)
 
 # Utils variables | variables de utilidades
 bspwm="https://github.com/baskerville/bspwm.git"
@@ -88,7 +92,8 @@ LOGO
 # Fetch or traps ctrl_c | function para traquear el ctrl_c y salir.⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 trap ctrl_c INT
 function ctrl_c () {
-	echo -e "${LightRed} Exiting the script goodbye! ${Reset}\n"
+	echo ""
+	echo -e "${Yellow}[!] ${LightRed}Ending the installer session! ${Reset} \n"
 	exit 1
 }
 
@@ -101,12 +106,14 @@ initial_checks () {
 	# Check if the script is run from home directory | comprobar si el script se ejecuta desde el directorio home
 	if [ "${PWD}" != "${HOME}" ]; then
 
-		clear ; logo
+		reset ; clear ; logo
 
-		echo -e "${White}The script must be executed from home directory.${Reset}"
-		echo -e "${White}Please move the script to your home directory and run it again.${Reset}"
-		echo -e "${White}Current directory: ${LightRed}${PWD}${Reset}"
-		echo -e ""
+		echo -e "${Bold}${LightRed}                [ OS: ${Cyan}${os_name}${LightRed} ] ${Reset} \n"
+
+		echo -e "${Blue}[*] ${White}That's script must be executed from home directory ${Reset}" ; sleep 00.5
+		echo -e "${Yellow}[!] ${White}Please move the script installer to your home directory ${Reset}" ; sleep 00.5
+		echo -e "${Blue}[*] ${White}And try to run it again dear user: ${LightRed}(${who_user}) ${Reset}" ; sleep 00.5
+		echo -e "${Yellow}[!] ${White}Current directory: ${LightRed}"${PWD}" ${Reset} \n" ; sleep 00.5
 		exit 1
 	fi
 
@@ -115,12 +122,13 @@ initial_checks () {
 		. /etc/os-release
 		if [ "$ID" != "kali" ] && [ "$ID" != "debian" ]; then
 
-			clear ; logo
+			reset ; clear ; logo
+		
+			echo -e "${Bold}${LightRed}                [ OS: ${Cyan}${os_name}${LightRed} ] ${Reset} \n"
 
-			echo -e "${White}This installer is only for kali Linux or debian based distros.${Reset}"
-			echo -e "${White}Your current distro is not supported.${Reset}"
-			echo -e "${White}Your current distro is: ${LightRed}${NAME}${Reset}"
-			echo -e ""
+			echo -e "${Blue}[*] ${White}This installer is only for kali Linux or Debian based distros ${Reset}" ; sleep 00.5
+			echo -e "${Yellow}[!] ${White}Now your current distro is not supported ${Reset}" ; sleep 00.5
+			echo -e "${Yellow}[!] ${White}Your current distro is: ${LightRed}${NAME} ${Reset} \n" ; sleep 00.5
 			exit 1
 		fi
 	fi
@@ -129,15 +137,19 @@ initial_checks () {
 # Welcome function | funcion de bienvenida
 welcome () {
 
-	clear ; logo
+	reset ; clear ; logo
+	
+	echo -e "${Bold}${LightRed}               [ Welcome: ${Cyan}${who_user}${LightRed} ] ${Reset} \n"
 
-	echo -e "${Cyan}This script will install my desktop environment and this is what it will do:${Reset}\n"
-	echo -e "${White}Download my desktop environment in: ${Green}${HOME}/cloning/Machinepwn${Reset}"
-	echo -e "${White}Install required packages and necessary dependencies.${Reset}"
-	echo -e "${White}Backup of possible existing configurations like ${Green}(bspwm, polybar, etc...)${Reset}"
-	echo -e "${White}Install and setup the desktop environment ${Green}(Machinepwn)${Reset}"
-	echo -e "${White}Enabling some service and change your shell to zsh shell.${Reset}\n"
-	echo -ne "${Cyan}Press ${Green}return${Cyan} to start the installation or ${LightRed}(ctrl+c)${Cyan} to exit.${Reset} "
+	echo -e "${Cyan}This script will install my desktop environment and this is what it will do: ${Reset} \n"
+	echo -e "${Blue}[*] ${White}Download my desktop environment in: ${Green}${HOME}/cloning/Machinepwn${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Install required packages and necessary dependencies ${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Backup of possible existing configurations like ${Green}(bspwm, polybar, etc...)${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Install and setup the desktop environment ${Green}(Machinepwn)${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Enabling some service and change your shell to zsh shell ${Reset} \n" ; sleep 00.5
+	echo -e "${Yellow}[!] ${LightRed}My desktop environment doesn't modify any of your system settings ${Reset}" ; sleep 00.5
+	echo -e "${Yellow}[!] ${LightRed}This script does not have the potential to break your system ${Reset} \n" ; sleep 00.5
+	echo -ne "${Cyan}Press ${Green}return${Cyan} to start the installation or ${LightRed}(ctrl+c)${Cyan} to exit${Reset} "
 	read
 }
 
@@ -146,25 +158,31 @@ install_dependencies () {
 
 	# Install required packages and dependencies | instalar paquetes y dependencias necesarias
 	
-	clear ; logo
+	reset ; clear ; logo
+	
+	echo -e "${Bold}${LightRed}        [ Install necessary dependencias ] ${Reset} \n"
 
-	echo -e "${White}Updating and installing required packages and dependencies...${Reset}\n" ; sleep 2
+	echo -e "${Blue}[*] ${White}Updating and installing required packages and dependencies ${Reset} \n" ; sleep 1
+
 	sudo apt update ; sudo apt full-upgrade -y ; sudo apt install -y ${libs} ${xorg} ${pkgs} --no-install-recommends
 
-	clear ; logo
-
-	echo -e "${Green}Once done the system was updated and the necessary dependencies were installed.${Reset}"
+	echo ""
+	echo -e "${Green}[i] ${White}Once done the system was updated and the necessary dependencies were installed ${Reset} \n" ; sleep 3
 }
 
 # Install bspwm, sxhkd and others function | funcion de instalacion de bspwm, sxhkd y otros
 install_bspwm_sxhkd_and_others () {
 
-	# Clone repositories | clonar repositorios
-	echo -e "${White}Cloning repositories in the current working folder...${Reset}\n"
+	reset ; clear ; logo
 
-		# Checks folder exist or no | comprobar si la carpeta existe o no.
+	echo -e "${Bold}${LightRed}          [ Install bspwn, sxhkd, picom ] ${Reset} \n"
+
+	# Clone repositories | clonar repositorios
+	echo -e "${Blue}[*] ${White}Cloning repositories in the current working folder ${Reset} \n" ; sleep 1
+
+		# Checks folder exist or no | comprobar si la carpeta existe o no
 		if [ -d "${HOME}/cloning" ]; then
-			echo -e "${White}The folder ${LightRed}(cloning)${White} already exists in your home directory.${Reset}\n"
+			echo -e "${Yellow}[!] ${White}The folder ${LightRed}(cloning)${White} already exists in your home directory ${Reset} \n" ; sleep 1
 			rm -rf "${HOME}/cloning"
 		fi
 
@@ -173,111 +191,113 @@ install_bspwm_sxhkd_and_others () {
 	sudo git clone --depth 1 --no-tags ${powerlevel10k} /usr/share/zsh-theme-powerlevel10k &>/dev/null ; sudo git clone --depth 1 --no-tags ${fzftabgit} /usr/share/fzf-tab-git &>/dev/null
 
 	if command -v bspwm &>/dev/null; then
-		echo -e "${Green}The bspwm is already installed on your system.${Reset}"
+		echo -e "${Green}[i] ${White}The bspwm is already installed on your system ${Reset}" ; sleep 1
 	else
 		# Install bspwm with repository | instalar bspwm con el repositorio
-		echo -e "${White}Installing bspwm with the repository...${Reset}"
+		echo -e "${Blue}[*] ${White}Installing bspwm with the repository ${Reset}" ; sleep 00.5
 		cd bspwm ; make &>/dev/null ; sudo make install &>/dev/null ; cd ..
-		echo -e "${Green}bspwm was installed.${Reset}\n" ; sleep 1.1
+		echo -e "${Green}[i] ${White}bspwm was installed ${Reset} \n" ; sleep 00.5
 	fi
 
 	if command -v sxhkd &>/dev/null; then
-		echo -e "${Green}The sxhkd is already installed on your system.${Reset}"
+		echo -e "${Green}[i] ${White}The sxhkd is already installed on your system ${Reset}" ; sleep 1
 	else
 		# Install sxhkd with repository | instalar sxhkd con el repositorio
-		echo -e "${White}Installing sxhkd with the repository...${Reset}"
+		echo -e "${Blue}[*] ${White}Installing sxhkd with the repository ${Reset}" ; sleep 00.5
 		cd sxhkd ; make &>/dev/null ; sudo make install &>/dev/null ; cd ..
-		echo -e "${Green}sxhkd was installed.${Reset}\n" ; sleep 1.1
+		echo -e "${Green}[i] ${White}sxhkd was installed ${Reset} \n" ; sleep 00.5
 	fi
 
 	if command -v picom; then
-		echo -e "${White}The picom compositor is already installed on your system."
+		echo -e "${Green}[i] ${White}The picom compositor is already installed on your system ${Reset}" ; sleep 1
 	else
 		# Install picom with repository | instalar picom con el repositorio.
-		echo -e "${White}Installing picom...${Reset}"
+		echo -e "${Blue}[*] ${White}Installing picom with the repository ${Reset}" ; sleep 00.5
 		cd picom ; meson setup --buildtype=release build  &>/dev/null ; ninja -C build &>/dev/null ; sudo ninja -C build install &>/dev/null ; cd ..
-		echo -e "${Green}picom was installed.${Reset}\n" ; sleep 1.1
+		echo -e "${Green}[i] ${White}picom was installed ${Reset} \n" ; sleep 00.5
 	fi
 }
 
 # Backup old configurations function | funcion de backup de configuraciones antiguas
 Backup_old_configurations () {
 
-	clear ; logo
+	reset ; clear ; logo
+	
+	echo -e "${Bold}${LightRed}         [ Backups user configurations ] ${Reset} \n"
 
 	# Backup old configurations | hacer backup de las configuraciones antiguas
-	echo -e "${White}Backing up old configurations...${Reset}\n"
-
 	cd "${HOME}" ; mkdir -p "backup" ; cd "backup"
 
 	if [ -d "${HOME}/.config/bspwm" ]; then
 		mv "${HOME}/.config/bspwm" "${HOME}/backup/bspwm.bak_$(date +%Y%m%d%H%M%S)"
-		echo -e "${Green}bspwm folder configuration backed up.${Reset}" ; sleep 1.1
+		echo -e "${Green}[i] ${White}bspwm folder configuration backed up ${Reset}" ; sleep 00.5
 	else
-		echo -e "${White}No existing bspwm configuration found skipping backup.${Reset}" ; sleep 1.1
+		echo -e "${Blue}[*] ${White}No existing bspwm configuration found skipping backup ${Reset}" ; sleep 00.5
 	fi
 
 	if [ -d "${HOME}/.config/sxhkd" ]; then
 		mv "${HOME}/.config/sxhkd" "${HOME}/backup/sxhkd.bak_$(date +%Y%m%d%H%M%S)"
-		echo -e "${Green}sxhkd folder configuration backed up.${Reset}" ; sleep 1.1
+		echo -e "${Green}[i] ${White}sxhkd folder configuration backed up ${Reset}" ; sleep 00.5
 	else
-		echo -e "${White}No existing sxhkd configuration found skipping backup.${Reset}" ; sleep 1.1
+		echo -e "${Blue}[*] ${White}No existing sxhkd configuration found skipping backup ${Reset}" ; sleep 00.5
 	fi
 
 	if [ -d "${HOME}/.config/polybar" ]; then
 		mv "${HOME}/.config/polybar" "${HOME}/backup/polybar.bak_$(date +%Y%m%d%H%M%S)"
-		echo -e "${Green}polybar folder configuration backed up.${Reset}" ; sleep 1.1
+		echo -e "${Green}[i] ${White}polybar folder configuration backed up ${Reset}" ; sleep 00.5
 	else
-		echo -e "${White}No existing polybar configuration found skipping backup.${Reset}" ; sleep 1.1
+		echo -e "${Blue}[*] ${White}No existing polybar configuration found skipping backup ${Reset}" ; sleep 00.5
 	fi
 
 	if [ -d "${HOME}/.config/alacritty" ]; then
 		mv "${HOME}/.config/alacritty" "${HOME}/backup/alacritty.bak_$(date +%Y%m%d%H%M%S)"
-		echo -e "${Green}alacritty folder configuration backed up.${Reset}" ; sleep 1.1
+		echo -e "${Green}[i] ${White}alacritty folder configuration backed up ${Reset}" ; sleep 00.5
 	else
-		echo -e "${White}No existing alacritty configuration found skipping backup.${Reset}" ; sleep 1.1
+		echo -e "${Blue}[*] ${White}No existing alacritty configuration found skipping backup ${Reset}" ; sleep 1.1
 	fi
 
 	if [ -d "${HOME}/.config/picom" ]; then
 		mv "${HOME}/.config/picom" "${HOME}/backup/picom.bak_$(date +%Y%m%d%H%M%S)"
-		echo -e "${Green}picom folder configuration backed up.${Reset}\n" ; sleep 1.1
+		echo -e "${Green}[i] ${White}picom folder configuration backed up ${Reset}" ; sleep 00.5
 	else
-		echo -e "${White}No existing picom configuration found skipping backup.${Reset}" ; sleep 1.1
+		echo -e "${Blue}[*] ${White}No existing picom configuration found skipping backup ${Reset}" ; sleep 00.5
 	fi
 
 	if [ -f "${HOME}/.zshrc" ]; then
 		mv "${HOME}/.zshrc" "${HOME}/backup/zshrc.bak_$(date +%Y%m%d%H%M%S)"
-		echo -e "${Green}.zshrc file configuration backed up.${Reset}\n" ; sleep 1.1
+		echo -e "${Green}[i] ${White}.zshrc file configuration backed up ${Reset} \n" ; sleep 00.5
 	else
-		echo -e "${White}No existing .zshrc file configuration found skipping backup.${Reset}\n" ; sleep 1.1
+		echo -e "${Blue}[*] ${White}No existing .zshrc file configuration found skipping backup ${Reset} \n" ; sleep 00.5
 	fi
 }
 
 # Change the default shell to zsh | cambiar la shell por defecto a zsh
 machinepwn_change_default_shell () {
 
-	clear ; logo
+	reset ; clear ; logo
+	
+	echo -e "${Bold}${LightRed}          [ Change your shell to Zsh ] ${Reset} \n"
 
 	who_user=$(whoami)
 	zsh_path=$(command -v zsh)
-	echo -e "${White}Changing the shell to zsh for the user ${LightRed}${who_user}...${Reset}" ; sleep 2
+	echo -e "${Blue}[*] ${White}Changing the shell to zsh for the user ${LightRed}(${who_user}) ${Reset}" ; sleep 00.5
 
     	if [ -z "${zsh_path}" ]; then
-        	echo -e "${LightRed}The shell zsh is not installed cannot change shell.${Reset}" ; sleep 2
+        	echo -e "${Yellow}[!] ${LightRed}The shell zsh is not installed cannot change shell ${Reset}" ; sleep 00.5
     	fi
 
 	if [ "${SHELL}" != "${zsh_path}" ]; then
 
-        	echo -e "${White}Changing your shell to zsh please wait${Reset}\n" ; sleep 1.1
+        	echo -e "${Blue}[*] ${White}Changing your shell to zsh please wait ${Reset} \n" ; sleep 00.5
 
 		if chsh -s "${zsh_path}"; then
-			echo -e "${Green}Okay it switched to zsh by default.${Reset}" ; sleep 1.1
+			echo -e "${Green}[i] ${White}Okay it switched to zsh by default ${Reset}" ; sleep 00.5
 		else
-			echo -e "${LightRed}Errors occurred while switching shells.${Reset}" ; sleep 1.1
+			echo -e "${Yellow}[!] ${LightRed}Errors occurred while switching the shell ${Reset}" ; sleep 00.5
 		fi
 
 	else
-		echo -e "${Green}Zsh is already your default shell.${Reset}" ; sleep 2
+		echo -e "${Green}[i] ${White}Zsh is already your default shell ${Reset}" ; sleep 00.5
 	fi
 }
 
@@ -285,9 +305,11 @@ machinepwn_change_default_shell () {
 install_machinepwn_configurations () {
 
 	reset ; clear ; logo
+	
+	echo -e "${Bold}${LightRed}       [ Install machinepwn configurations ] ${Reset} \n"
 
 	# Copying directories also add permissions | copiando directorios y agregando permisos
-	echo -e "${White}Installing machinepwn configuration please wait...${Reset}"
+	echo -e "${Blue}[*] ${White}Installing machinepwn configuration please wait ${Reset}" ; sleep 00.5
 	cd "${HOME}/cloning/Machinepwn/home/.config" ; cp -r * "${HOME}/.config"
 
 	# Add permissions files | agregando permisos a los archivos
@@ -331,19 +353,22 @@ install_machinepwn_configurations () {
 	elif command -v curl &>/dev/null; then
 		sudo curl -LO ${zsh_sudo} &>/dev/null
 	else
-		echo -e "${LightRed}Error: Curl or wget binaries not found.${Reset}" ; sleep 3
+		echo -e "${Yellow}[!] ${LightRed}Error (curl) or (wget) binaries not found ${Reset}" ; sleep 2
+		echo -e "${Blue}[*] ${White}The installation will complete but you will need to manually install the sudo plugin ${Reset}" ; sleep 1
 	fi
 
-	echo -e "${Green}Machinepwn configuration installed correctly.${Reset}\n" ; sleep 3
+	echo -e "${Green}[i] ${White}Machinepwn configuration installed correctly ${Reset} \n" ; sleep 3
 }
 
 
 # Configure and enable some services | confugurando y habilitando algunos servicios
 machinepwn_configure_services () {
 
-	clear ; logo
+	reset ; clear ; logo
+	
+	echo -e "${Bold}${LightRed}           [ Configure some services ] ${Reset} \n"
 
-	echo -e "${White}Configure and enable some services...${Reset}" ; sleep 2
+	echo -e "${Blue}[*] ${White}Configure and enable some services ${Reset}" ; sleep 00.5
 
 	# Open directory services | Abriendo el directorio de servicios
 	cd ${HOME}/.config/systemd/user
@@ -358,25 +383,35 @@ machinepwn_configure_services () {
 	# Copying the script in the working directory | Copiando el script en el directorio de trabajo
 	cd "${HOME}/.config/bspwm/src" ; sudo cp "KaliUpdates.sh" "/usr/local/bin/" ; sudo chmod +x "/usr/local/bin/KaliUpdates.sh"
 
-	echo -e "${Green}Everything is ready services are enabled.${Reset}\n" ; sleep 1.2
+	echo -e "${Green}[i] ${White}Everything is ready services are enabled ${Reset} \n" ; sleep 00.5
 }
 
 # The final steps | ultimos pasos finales para la instalacion
 machinepwn_final_steps () {
-	echo -e "${White}Deleting cloning folder and clean apt...${Reset}" ; sleep 2
-	
-	sudo rm -rf ${HOME}/cloning
 
-	echo -e "${Green}Almost everything is ready.${Reset}\n"
-	echo -ne "${White}Do you want to restart the system? ${LightRed}(y/n) ${Reset}"
+	reset ; clear ; logo
+	
+	echo -e "${Bold}${LightRed}                 [ Final steps ] ${Reset} \n"
+
+	echo -e "${Blue}[*] ${White}Deleting cloning folder and clean apt ${Reset}" ; sleep 00.5
+	
+	sudo apt update &>/dev/null
+	sudo apt autoremove --purge -y &>/dev/null
+	sudo apt autoclean -y &>/dev/null
+	sudo rm -rf ${HOME}/cloning &>/dev/null
+
+	echo -e "${Green}[i] ${White}Almost everything is ready ${Reset} \n" ; sleep 00.5
+	echo -ne "${Cyan}[?] ${White}Do you want to restart the system? ${LightRed}(y/n) ${Reset}"
 	read choice
 
 	if [ ${choice} == "y" ]; then
-		echo -e "${Green}Restarting the system...${Reset}" ; sleep 3
+		echo ""
+		echo -e "${Green}[i] ${White}Restarting the system ${Reset}" ; sleep 3
 		sudo systemctl reboot
 	else
-		echo -e "${LightRed}The user aborting restart...${Reset}" ; sleep 3
-		echo -e "${LightRed}Exiting the script goodbye!${Reset}\n" ; sleep 3
+		echo ""
+		echo -e "${Yellow}[!] ${LightRed}The user aborting restart ${Reset}" ; sleep 3
+		echo -e "${Yellow}[!] ${LightRed}Exiting the script goodbye ${Reset} \n" ; sleep 3
 		exit 0
 	fi
 }
