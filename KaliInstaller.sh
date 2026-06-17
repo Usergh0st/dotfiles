@@ -12,7 +12,7 @@
 # Author: Enríque González Aka (Usergh0st)
 # Repository: https://github.com/Usergh0st/Machinepwn.git
 # Mail: usergh0stmail@proton.me
-# Date: 14.06.2026 08:47 AM
+# Date: 16.06.2026 10:22 AM
 
 # Description: Kali Linux installer script for machinepwn desktop
 # environment the script only works in distributions based on
@@ -208,7 +208,7 @@ install_bspwm_sxhkd_and_others () {
 		echo -e "${Green}[i] ${White}sxhkd was installed ${Reset} \n" ; sleep 00.5
 	fi
 
-	if command -v picom; then
+	if command -v picom &>/dev/null; then
 		echo -e "${Green}[i] ${White}The picom compositor is already installed on your system ${Reset}" ; sleep 1
 	else
 		# Install picom with repository | instalar picom con el repositorio.
@@ -284,6 +284,7 @@ machinepwn_change_default_shell () {
 
     	if [ -z "${zsh_path}" ]; then
         	echo -e "${Yellow}[!] ${LightRed}The shell zsh is not installed cannot change shell ${Reset}" ; sleep 00.5
+		return 1
     	fi
 
 	if [ "${SHELL}" != "${zsh_path}" ]; then
@@ -310,7 +311,8 @@ install_machinepwn_configurations () {
 
 	# Copying directories also add permissions | copiando directorios y agregando permisos
 	echo -e "${Blue}[*] ${White}Installing machinepwn configuration please wait ${Reset}" ; sleep 00.5
-	cd "${HOME}/cloning/Machinepwn/home/.config" ; cp -r * "${HOME}/.config"
+        cd "${HOME}/cloning/Machinepwn/home/.config" || { echo "${LightRed}[!] ${White}Error the directory doesn't exit ${Reset}"; exit 1; }
+        cp -r * "${HOME}/.config"
 
 	# Add permissions files | agregando permisos a los archivos
 	cd "${HOME}/.config/bspwm/" ; chmod +x bspwmrc ; chmod +x sxhkdrc
@@ -336,9 +338,14 @@ install_machinepwn_configurations () {
 	fi
 
 	# Installing others thins | instalar otras cosas
-	folder="bin" ; mkdir -p "~/.local/${folder}"
+	folder="bin" ; mkdir -p "${HOME}/.local/${folder}"
 	cd "${HOME}/cloning/Machinepwn/misc" ; cp -r * "${HOME}/.local/${folder}"
-	chmod +x * "${HOME}/.local/${folder}"
+	chmod +x "${HOME}/.local/${folder}"/*
+
+	# Installing misc configuration | Instalar configuraciones del carpeta misc
+	cd "${HOME}/.local/${folder}/confd"
+	sudo mv "99local" "/etc/apt/apt.conf.d" ; sudo mv "local.conf" "/etc/fonts/"
+	sudo mv "99-swappiness.conf" "/etc/sysctl.d/" ; sudo mv "30-touchpad.conf" "/etc/X11/xorg.conf.d/"
 
 	# Temporary text for modules updates | texto temporal para el modulo updates
 	sudo mkdir -p "/var/cache/machinepwn"
@@ -355,6 +362,7 @@ install_machinepwn_configurations () {
 	else
 		echo -e "${Yellow}[!] ${LightRed}Error (curl) or (wget) binaries not found ${Reset}" ; sleep 2
 		echo -e "${Blue}[*] ${White}The installation will complete but you will need to manually install the sudo plugin ${Reset}" ; sleep 1
+		return 1
 	fi
 
 	echo -e "${Green}[i] ${White}Machinepwn configuration installed correctly ${Reset} \n" ; sleep 3
@@ -412,7 +420,7 @@ machinepwn_final_steps () {
 		echo ""
 		echo -e "${Yellow}[!] ${LightRed}The user aborting restart ${Reset}" ; sleep 3
 		echo -e "${Yellow}[!] ${LightRed}Exiting the script goodbye ${Reset} \n" ; sleep 3
-		exit 0
+		exit 1
 	fi
 }
 
