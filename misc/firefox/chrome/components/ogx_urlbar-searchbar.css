@@ -1,0 +1,522 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/firefox-gx */
+
+/* Find-bar */
+
+findbar {
+    background-color: var(--toolbar-bgcolor) !important;
+    color: var(--my-font-color) !important;
+    border-color: var(--input-border-color) !important;
+}
+
+.findbar-textbox:focus {
+    color: var(--toolbar-field-focus-color);
+    outline-color: var(--general-color) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.23);
+}
+
+.findbar-textbox[status="notfound"]{ 
+    outline-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.findbar-find-status[status="notfound"] {
+    color: var(--red) !important;
+}
+
+/* "popup_highlight" ---> 1.- keyboard highlight ;  2.-mouse highlight */
+
+.urlbarView-row[selected], .urlbarView-row[row-selectable]:not([selected]):hover {
+    --link-color: var(--my-font-color) !important;
+    background-color: var(--autocomplete-popup-hover-background) !important;
+    color: currentColor !important;
+    border-radius: 0px !important;
+}
+
+/* Font size */
+
+.urlbarView-title {
+    font-size: 1.06em !important;
+}
+
+.urlbarView-tags, .urlbarView-url, .urlbarView-title:not(:empty)~.urlbarView-action {
+    font-size: 1.05em !important;
+    font-weight: 501 !important;
+}
+
+/* Width of search container */
+
+.urlbarView-body-inner,
+.urlbarView {
+  margin-inline: 0px !important;
+  width: 100% !important;
+  border-inline: 0px solid red !important;
+}
+
+.urlbarView-results {
+    padding-block: 0px !important;
+}
+
+.urlbarView-row {
+  border: 0px solid transparent !important;
+}
+
+/* Url margin inline - Searchbox margin inline */
+
+#urlbar .urlbar-input-container {
+    padding-inline: 12px !important;
+}
+
+#search-container #searchbar-new {
+    padding-inline: 12px !important;
+    
+    .urlbarView {
+        margin-inline-start: -12px !important;
+        width: calc(100% + 24px) !important;
+    }
+}
+
+:is(#urlbar)[breakout][breakout-extend] {
+  & > .urlbar-input-container {
+      padding-inline: 17px !important;
+    }
+}
+
+/* favicons */
+
+.urlbarView-row {
+  @media -moz-pref("browser.urlbar.richSuggestions.featureGate") {
+    &:not([rich-suggestion]), &[rich-suggestion][icon-size="16"] {
+      --urlbarView-icon-margin-start: 18px !important;
+      --urlbarView-icon-margin-end: 14px !important;
+      }
+  }
+}
+
+.urlbarView-favicon {
+    min-width: 16px !important;
+    max-width: 16px !important;
+}
+
+.urlbarView-row:hover .urlbarView-favicon {
+    background-color: var(--toolbar-field-focus-background-color) !important;
+    outline: 8px solid var(--toolbar-field-focus-background-color) !important;
+    clip-path: circle(90%) !important;
+}
+
+/* example 'Search with youtube' when you type 'you' */
+.urlbarView-row[dynamicType="actions"] > .urlbarView-row-inner {
+  padding-inline: 13px !important;
+}
+
+/* Remove pinned site icon from search suggestions */
+.urlbarView-type-icon {
+    display: none !important;
+}
+
+/* Rich Suggestions */
+
+.urlbarView-row[rich-suggestion] > .urlbarView-row-inner > .urlbarView-favicon {
+    max-height: 16px !important;
+    max-width: 16px !important;
+    margin-inline: 18px 14px !important;
+}
+
+/* 'Switch to tab' button */
+
+.urlbarView-row:is([type="switchtab"], [type="remotetab"], [type="clipboard"]) {
+    & > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action {
+        padding-block: 0px 2px !important;
+        margin-block: 0px -2px !important;
+    }
+}
+
+/* Height if each row of suggestion */
+
+.urlbarView-row {
+  &:not([type="tip"], [type="dynamic"]) {
+    :root:not([uidensity="compact"]) & {
+      min-height: 36px !important;
+    }
+  }
+}
+
+/* 'Switch to tab' button with container line */
+
+.urlbarView-userContext {
+  border-top: 0px !important;
+  box-shadow: 0 -2px 0 0 var(--identity-tab-color), inset 0 2px 0 0 var(--identity-tab-color) !important;
+}
+
+/* Remove container icon when searchbar is smaller */
+.urlbarView-userContext-icon {
+    display: none !important;
+}
+
+/* 'Quick Action' Buttons urlbar 'open' */
+
+.urlbarView-quickaction-button {
+    box-shadow: 0px 0px 1px rgba(128, 128, 142, 0.9) !important;
+}
+
+.urlbarView-quickaction-button:hover {
+    background-color: var(--button-hover-bgcolor) !important;
+    box-shadow: 0px 0px 0px 1px var(--button-hover-bgcolor) !important;
+}
+
+/* Label 'Firefox Suggestions - Google Suggestions' */
+
+.urlbarView-row[label] {
+    margin-block-start: 26px !important;
+}
+
+.urlbarView-row[label]::before {
+    margin-inline-start: 20px !important;
+    font-weight: bold !important;
+}
+
+/* Margin left for 'This time Search with' */
+
+#urlbar .search-panel-header{
+    padding-inline-start: 14px !important;
+}
+
+/* Latest button 'Search configuration' */
+
+#urlbar .search-setting-button {
+  margin-inline: 10px !important;
+}
+
+/* Does not display search suggestions in double row - smaller firefox window */
+
+@media screen and (min-height: 600px) {
+    .urlbarView-results[wrap] > .urlbarView-row {
+        &:where(:not([rich-suggestion])) > .urlbarView-row-inner {
+            & > .urlbarView-no-wrap {
+                flex-basis: 0% !important;
+            }
+        }
+    }
+
+    /* Separator title - url */
+    .urlbarView-results[wrap] > .urlbarView-row {
+        .urlbarView[action-override] &[has-url]:not([restyled-search]), &[has-url]:not([type$="tab"], [sponsored], [restyled-search]), &[has-url]:is([type="remotetab"], [sponsored]):is(:hover, [selected]), &[type="tabtosearch"] {
+            & .urlbarView-title-separator {
+                display: flex !important;
+            }
+        }
+    }
+    
+    /* Unnecessary margin after the separator */
+    .urlbarView-results[wrap] > .urlbarView-row {
+        &[has-url] > .urlbarView-row-inner > .urlbarView-url {
+            &:-moz-locale-dir(ltr) {
+                margin-inline-start: 0px !important;
+            }
+        }
+
+    }
+}
+
+/* ____________________________________ Nav-bar height ____________________________________ */
+
+#nav-bar {
+    height: var(--toolbar-height-personal) !important;
+}
+
+#urlbar-container, #search-container {
+    --urlbar-container-height: var(--toolbar-height-personal) !important;
+}
+
+:is(#urlbar, #searchbar-new) {
+    --urlbar-height: calc(var(--toolbar-height-personal) - 10px) !important;
+    --urlbar-min-height: calc(var(--toolbar-height-personal) - 10px) !important;
+}
+
+/* Roundness */
+
+:is(#urlbar, #searchbar-new), 
+.urlbar-background {
+    --toolbarbutton-border-radius: var(--border-radius-urlbar-personal) !important;
+    border-radius: var(--toolbarbutton-border-radius) !important;
+}
+
+:is(#urlbar, #searchbar-new)[open], 
+:is(#urlbar, #searchbar-new)[open] .urlbar-background {
+    --toolbarbutton-border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
+    border-radius: var(--toolbarbutton-border-radius) !important;
+}
+
+/* Fix overflow background in last result item - not 'overflow hidden' in urlbar open to solve bug when trying url partial selection */
+.urlbarView-results {
+    clip-path: xywh( 0 0 100% 100% round 0 0 calc(var(--border-radius-urlbar-personal) + 6px) calc(var(--border-radius-urlbar-personal) + 6px)) !important;
+}
+
+:is(#urlbar, #searchbar-new):not([open], [focused]) .urlbar-background {
+    transition: ease-in 150ms !important;
+    transition-delay: 80ms !important;
+}
+
+:is(#urlbar, #searchbar-new):not([open], [focused]):hover .urlbar-background {
+    background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+    border-color: transparent !important;
+    transition: linear 150ms !important;
+    transition-delay: 100ms !important;
+}
+
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) 
+    :is(#urlbar, #searchbar-new):not([open]):is([focused]) .urlbar-background {
+        background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+}
+
+:is(#urlbar, #searchbar-new)[focused] .urlbar-background {
+    box-shadow: none !important;
+    transition: background-color 0.4s ease !important;
+}
+
+:is(#urlbar, #searchbar-new)[open] .urlbar-background {
+    background-image: var(--noise-urlbar-personal) !important;
+    border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
+    border-color: transparent !important;
+    margin-block-start: 1px !important;
+}
+
+#urlbar-input, #urlbar-scheme {
+    margin-block-start: -2px !important;
+}
+
+/* Necessary for many -Hamburger Menu- and -Left Sidebar- scenarios */
+
+#navigator-toolbox {
+    z-index: unset !important;
+}
+
+/* Dark filter when urlbar is [open] */
+
+#urlbar-container::before {
+    content: '';
+    box-shadow: 0 0 0 100vw var(--my-box-shadow-color, transparent);
+    transition: box-shadow 250ms ease-out;
+    pointer-events: none;
+    z-index: 6 !important;
+}
+
+#urlbar-container:has(#urlbar[open])::before {
+    --my-box-shadow-color: rgba(0, 0, 0, 0.50);
+}
+
+/* 'Trust' button */
+
+@media -moz-pref("browser.urlbar.trustPanel.featureGate") {
+    #trust-icon-container {
+        align-self: center !important;
+    }
+}
+
+/* Search Engine button */
+
+@media not -moz-pref("browser.urlbar.searchModeSwitcher.featureGate") {
+    #urlbar-searchmode-switcher:not(:hover,[open]) {
+        background-color: transparent !important;
+    }
+}
+
+/* Hide default search engine icon */
+:is(#urlbar, #searchbar-new):not([searchmode]) .searchmode-switcher-icon {
+    list-style-image: url("chrome://global/skin/icons/search-glass.svg") !important;
+}
+
+#urlbar-searchmode-switcher {
+    margin-block: 1px !important;
+    --urlbar-searchmodeswitcher-inline-padding: 5px !important;
+    --urlbar-searchmodeswitcher-margin-inline-end: 8px !important;
+    
+    &:hover { background-color: var(--urlbar-box-hover-bgcolor) !important; }
+    &[open] { background-color: var(--urlbar-box-active-bgcolor) !important; }   
+}
+
+.searchmode-switcher-popup {
+  & > menuitem {
+    margin-inline: var(--arrowpanel-menuitem-margin) !important;
+  }
+}
+
+.searchmode-switcher-dropmarker {
+    display: none !important;
+}
+
+.searchmode-switcher-chicklet {
+    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
+    align-self: center !important;
+}
+
+.searchmode-switcher-icon {
+    padding: 0px !important;
+    margin: -2px !important;
+}
+
+@media -moz-pref("browser.urlbar.searchModeSwitcher.featureGate"), -moz-pref("browser.urlbar.scotchBonnet.enableOverride") {
+    #urlbar[searchmode] {
+        #urlbar-searchmode-switcher {
+            background-color: var(--urlbar-box-bgcolor) !important;
+
+            &:is(:hover,[open]) {
+                background-color: var(--urlbar-box-hover-bgcolor) !important;
+                border-radius: var(--urlbar-icon-border-radius) !important;
+            }
+        }
+    }
+}
+
+/* Search-box - the one next to address-bar */
+
+.search-go-button, #urlbar-go-button {
+    width: calc(var(--urlbar-min-height) - 6px - 2 * var(--urlbar-container-padding)) !important;
+    height: calc(var(--urlbar-min-height) - 6px - 2 * var(--urlbar-container-padding)) !important;
+    margin-inline-end: 4px !important;
+    align-self: center !important;
+}
+
+/* 'X' button to clear box search */
+input::-moz-search-clear-button {
+    bottom: 0px !important;
+    width: calc(var(--urlbar-min-height) - 14px - 2 * var(--urlbar-container-padding)) !important;
+    height: calc(var(--urlbar-min-height) - 14px - 2 * var(--urlbar-container-padding)) !important;  
+}
+
+input::-moz-search-clear-button:hover {
+    background-color: var(--urlbar-box-hover-bgcolor) !important;
+}
+
+/* 'Trust' icon replaced with Extension icon in pages of extensions */
+
+.extensionPage {
+    display: none !important;
+}
+
+#trust-icon-container.secure {
+    --my-replace-trust-icon: url(chrome://mozapps/skin/extensions/extension.svg);
+}
+
+:has(.extensionPage) #trust-icon-container.secure {
+    list-style-image: var(--my-replace-trust-icon) !important;
+}
+
+/* Firefox secure pages */
+
+.identity-box-button{
+    --urlbar-box-bgcolor: transparent !important;
+    --urlbar-box-focus-bgcolor: transparent !important;
+}
+
+#identity-icon-label {
+    display: none !important;
+}
+
+#identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button {
+    padding-inline: var(--urlbar-icon-padding) !important;
+    margin-inline: 0px !important;
+}
+
+#identity-box[pageproxystate="valid"].chromeUI .identity-box-button:not(:hover, [open]) #identity-icon {
+    fill: var(--general-color) !important;
+}
+
+/* ________________________________________________ Smaller url-bar icons ________________________________________________ */
+
+/* Box margin */
+
+.identity-box-button,                                                                                      /* Lock */
+#notification-popup-box,                                                                                   /* Password... */
+#tracking-protection-icon-container {                                                                      /* Shield */
+    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
+    min-width: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
+    justify-content: center !important;                                                                    /* Align too in touch density */
+    align-self: center !important;
+}
+
+/* Background 'hover' & 'open' in Notification buttons like 'password'... */
+
+#notification-popup-box {
+    &:hover { background-color: var(--urlbar-box-hover-bgcolor) !important; }
+    &[open] { background-color: var(--urlbar-box-active-bgcolor) !important; }
+}
+
+/* vertical align 'urlbar-page-action' icons */
+
+.urlbar-icon {
+    align-self: center !important;
+}
+
+/* Size & horizontal align 'urlbar-page-action' icons */
+
+.urlbar-page-action, .urlbar-revert-button, .urlbar-go-button, .search-go-button {
+    width: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
+    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
+    justify-content: center !important;
+}
+
+/* Correct display of zoom percentage shown in the url bar */
+
+#urlbar-zoom-button {
+    order: -1 !important;
+    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
+}
+
+/* Show only the permision (blocked, allow...) icon */
+
+#identity-permission-box:has(.blocked-permission-icon[showing]) {
+    &> image {
+        display: none !important;
+    }
+    .blocked-permission-icon { margin-inline-start: 0px !important; }
+}
+
+/* Translate button */
+
+#translations-button[translationsactive]{
+    width: initial !important;
+    border-radius: var(--urlbar-icon-border-radius) !important;
+}
+
+#translations-button[translationsactive] {
+    --toolbarbutton-icon-fill-attention: var(--toolbar-color) !important;
+    &:not(:hover,[open]) .urlbar-icon{
+        display: none !important;
+    }
+}
+
+#translations-button-locale {
+    background-color: var(--general-color) !important;
+    border-radius: var(--urlbar-icon-border-radius) !important;
+    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
+    width: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
+    height: 22px !important;
+    margin-block: -3px !important;
+}
+
+#translations-button:is([open], :hover) #translations-button-locale{
+    background-color: var(--toolbarbutton-icon-fill) !important;
+    color: var(--contrast-color) !important;
+}
+
+/* Space between left url icons */
+
+#identity-box>box {
+    margin-inline: 4px !important;
+}
+
+/* Space between right url icons */
+
+#page-action-buttons>hbox,
+#tracking-protection-icon-container{
+    margin-inline-start: 4px !important;
+}
+
+/* Green color of the secure web description */
+
+description#identity-popup-content-owner-label, description#identity-popup-content-owner, description#identity-popup-content-verifier, 
+#identity-popup-securityView-body>button {
+    color: #2cf62c !important;
+    padding-inline-start: 16px !important;
+}
