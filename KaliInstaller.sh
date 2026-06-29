@@ -128,7 +128,7 @@ initial_checks () {
 
 			echo -e "${Blue}[*] ${White}This installer is only for kali Linux or Debian based distros ${Reset}" ; sleep 00.5
 			echo -e "${Yellow}[!] ${White}Now your current distro is not supported ${Reset}" ; sleep 00.5
-			echo -e "${Yellow}[!] ${White}Your current distro is: ${LightRed}${NAME} ${Reset} \n" ; sleep 00.5
+			echo -e "${Yellow}[!] ${White}Your current distro is: ${LightRed}${os_name} ${Reset} \n" ; sleep 00.5
 			exit 1
 		fi
 	fi
