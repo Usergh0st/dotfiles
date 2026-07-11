@@ -1,28 +1,30 @@
-#!/usr/bin/env bash
-# ========================================================================================
-# Author: Enríque González Aka (Usergh0st)
-# Repository: https://github.com/Usergh0st/Machinepwn
-# Mail: tsohg.uncork054@passinbox.com
-# Date: 10.06.2026 08:13 PM
-#
-# Description: Dynamic multi-monitor support and configuration for bspwm using xrandr
-# Features:
-#       ✔ Support multi-monitor
-#       ✔ Automatic resolution adjustment
-#
-# Dependencies:
-#   → xorg-xrandr
-#   → x11-xserver-utils
-#
-# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>
-# Copyright (C) 2027-2027 Usergh0st <usergh0stmail@proton.me>
-# Licensed under GPL-3.0 license
-# ========================================================================================
+#!/bin/sh
+# =================================================================================== #
+# Author: Enríque González Aka (Usergh0st)                                            #
+# Repository: https://github.com/Usergh0st/Machinepwn                                 #
+# Mail: tsohg.uncork054@passinbox.com                                                 #
+# Date: 11.07.2026 09:00 PM                                                           #
+#                                                                                     #
+# Script Name: MonitorSetup.sh                                                        #
+# Description: Dynamic multi-monitor support and configuration for bspwm using xrandr #
+# Features:                                                                           #
+#       ✔ Support multi-monitor                                                       #
+#       ✔ Automatic resolution adjustment                                             #
+#                                                                                     #
+# Dependencies on Arch Linux:                                                         #
+#   → xorg-xrandr, x11-xserver-utils                                                  #
+#                                                                                     #
+# Dependencies on Kali Linux:                                                         #
+#   → xserver-xorg-core, x11-xserver-utils                                            #
+#                                                                                     #
+# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>                         #
+# Licensed under GPL-3.0 license                                                      #
+# =================================================================================== #
 
-# Xrandr cmd to get connected monitors and their resolutions.
+# Xrandr cmd to get connected monitors and their resolutions
 ouput_xrandr=$(xrandr)
 
-# Funtion to obtain monitor info.
+# Funtion to obtain monitor info
 feth_monitor_info () {
     echo "${ouput_xrandr}" | awk -v monitor="$1" '
         $1 == monitor { getline; print $1, $2 }
@@ -33,7 +35,7 @@ feth_monitor_info () {
 set -- $(echo -e "${ouput_xrandr}" | awk '$2 == "connected" {print $1}')
 NUM_MONITORS=$#
 
-# Configure monitors based on the number of connected monitors.
+# Configure monitors based on the number of connected monitors
 case ${NUM_MONITORS} in
 	1)
 		monitor_1="$1"
@@ -65,5 +67,5 @@ case ${NUM_MONITORS} in
 		bspc wm -O "${monitor_1}" "${monitor_2}"
 		;;
 	*)
-		echo "Only two monitors can be supported simultaneously."
+		echo "Only two monitors can be supported simultaneously"
 esac

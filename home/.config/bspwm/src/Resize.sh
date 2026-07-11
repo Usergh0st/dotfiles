@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-# =========================================================
-# Author: Enríque González Aka (Usergh0st)
-# Description: A simple script to resize the windows.
-# Repository: https://github.com/Usergh0st/Machinepwn
-# Date: 10.06.2026 08:18 PM
-# Licensed: under GPL-3 Licensed
-# =========================================================
+# ========================================================= #
+# Author: Enríque González Aka (Usergh0st)                  #
+# Repository: https://github.com/Usergh0st/Machinepwn       #
+# Mail: tsohg.uncork054@passinbox.com                       #
+# Date: 11.07.2026 09:23 AM                                 #
+#                                                           #
+# Script Name: Resize.sh                                    #
+# Description: A simple script to resize bspwm the windows. #
+# Licensed: under GPL-3 Licensed                            #
+# ========================================================= #
 
 if bspc query -N -n focused.floating > /dev/null; then
 	step=20

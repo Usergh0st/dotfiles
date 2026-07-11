@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-# ==========================================================================
-# Author: Enríque González Aka (Usergh0st)
-# Description: A simple script powermenu, shutdown, restart and much more.
-# Repository: https://github.com/Usergh0st/Machinepwn
-# Date: 10.06.2026 08:18 PM
-# Licensed: under GPL-3 Licensed
-# ==========================================================================
+# ======================================================================== #
+# Author: Enríque González Aka (Usergh0st)                                 #
+# Repository: https://github.com/Usergh0st/Machinepwn                      #
+# Mail: tsohg.uncork054@passinbox.com                                      #
+# Date: 11.07.2026 09:19 AM                                                #
+#                                                                          #
+# Script Name: powermenu.sh                                                #
+# Description: A simple script powermenu, shutdown, restart and much more. #
+# Licensed: under GPL-3 Licensed                                           #
+# ======================================================================== #
 
 # Enable strict mode.
 set -euo pipefail

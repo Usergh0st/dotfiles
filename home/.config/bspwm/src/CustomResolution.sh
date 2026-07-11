@@ -1,27 +1,29 @@
-#!/usr/bin/env bash
-# ==========================================================================================
-# Author: Enríque González Aka (Usergh0st)
-# Repository: https://github.com/Usergh0st/Machinepwn
-# Mail: tsohg.uncork054@passinbox.com
-# Date: 10.06.2026 07:59 PM
-#
-# Description: Configure your own monitor resolution, in case the first one doesn't work.
-# Features:
-#       ✔ Set a custom screen resolution
-#
-# Dependencies:
-#   → xorg-xrandr
-#   → x11-xserver-utils
-#
-# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>
-# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>
-# Licensed under GPL-3.0 license
-# ==========================================================================================
+#!/bin/sh
+# ======================================================================================= #
+# Author: Enríque González Aka (Usergh0st)                                                #
+# Repository: https://github.com/Usergh0st/Machinepwn                                     #
+# Mail: tsohg.uncork054@passinbox.com                                                     #
+# Date: 11.07.2026 08:56 PM                                                               #
+#                                                                                         #
+# Script Name: CustomResolution.sh                                                        #
+# Description: Configure your own monitor resolution, in case the first one doesn't work. #
+# Features:                                                                               #
+#       ✔ Set a custom screen resolution                                                  #
+#                                                                                         #
+# Dependencies on Arch Linux:                                                             #
+#   → xorg-xrandr, x11-xserver-utils                                                      #
+#                                                                                         #
+# Dependencies on Kali Linux:                                                             #
+#   → xserver-xorg-core, x11-xserver-utils                                                #
+#                                                                                         #
+# Copyright (C) 2026-2026 Usergh0st <usergh0stmail@proton.me>                             #
+# Licensed under GPL-3.0 license                                                          #
+# ======================================================================================= #
 
 set -euo pipefail
 
-# Hello dear user, edit these variables to your liking to apply the best resolution to your machine. 
-# This is in case you don't like the current resolution. 
+# Hello dear user, edit these variables to your liking to apply the best resolution to your machine.
+# This is in case you don't like the current resolution.
 # Edit the (bspwmrc) file and change the script (CustomResolution.sh).
 # (xrandr -q) to show screen resolutions.
 mode="${1:-1920x1080}"

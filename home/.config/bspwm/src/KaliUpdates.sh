@@ -1,21 +1,24 @@
 #!/bin/sh
-# ==============================================================
-# Author: Enríque González Aka (Usergh0st)
-# Repository: https://github.com/Usergh0st/Machinepwn
-# Mail: tsohg.uncork054@passinbox.com
-# Date: 10.06.2026 08:09 PM
-#
-# Description: Script to check for new updates in kali linux
-# and sync updates module in polybar and others.
-#
-# Features:
-#       ✔ Shows available updates
-#       ✔ Update clock
-#
-# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>
-# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>
-# Licensed under GPL-3.0 license
-# =============================================================
+# =========================================================== #
+# Author: Enríque González Aka (Usergh0st)                    #
+# Repository: https://github.com/Usergh0st/Machinepwn         #
+# Mail: tsohg.uncork054@passinbox.com                         #
+# Date: 10.06.2026 08:09 PM                                   #
+#                                                             #
+# Script Name: KaliUpdates.sh                                 #
+# Description: Script to check for new updates in kali linux  #
+# and sync updates module in polybar and others.              #
+#                                                             #
+# Features:                                                   #
+#       ✔ Shows available updates                             #
+#       ✔ Updates clock                                       #
+#                                                             #
+# Dependencies                                                #
+#   → apt, polybar                                            #
+#                                                             #
+# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me> #
+# Licensed under GPL-3.0 license                              #
+# =========================================================== #
 
 # Colors in the script
 Red="\e[1;31m"

@@ -1,12 +1,14 @@
 #!/bin/sh
-# =======================================================
-# Author: Enríque González Aka (Usergh0st)
-# Repository: https://github.com/Usergh0st/Machinepwn
-# Date: 10.06.2026 08:06 PM
-# Mail: tsohg.uncork054@passinbox.com
-# Description: The external rules for bspwm
-# Licensed under GPL-3.0 license
-# =======================================================
+# =================================================== #
+# Author: Enríque González Aka (Usergh0st)            #
+# Repository: https://github.com/Usergh0st/Machinepwn #
+# Mail: tsohg.uncork054@passinbox.com                 #
+# Date: 11.07.2026 09:23 AM                           #
+#                                                     #
+# Script Name: ExternalRules.sh                       #
+# Description: The external rules for bspwm           #
+# Licensed under GPL-3.0 license                      #
+# =================================================== #
 
 wid=$1
 class=$2
