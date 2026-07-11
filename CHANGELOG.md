@@ -35,6 +35,7 @@ Update module; with this you can see how many packages you need to update.
 - Improve and optimize the environment to be faster.
 - Explore some ideas and see which function to implement.
 - Configure gtk-3.0 and gtk-4.0 themes and cursors.
+- Refactor and improve all scripts.
 
 ---
 
