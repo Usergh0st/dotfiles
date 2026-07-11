@@ -1,27 +1,33 @@
 #!/usr/bin/env bash
-# =================================================================
-#  __  __         __ __      _____   __
-# |  |/  |.---.-.|  |__|    |     |_|__|.-----.--.--.--.--.
-# |     < |  _  ||  |  |    |       |  ||     |  |  |_   _|
-# |__|\__||___._||__|__|    |_______|__||__|__|_____|__.__|
-#  _______               __          __ __
-# |_     _|.-----.-----.|  |_.---.-.|  |  |.-----.----.
-#  _|   |_ |     |__ --||   _|  _  ||  |  ||  -__|   _|
-# |_______||__|__|_____||____|___._||__|__||_____|__|
+# =============================================================== #
+#  __  __         __ __      _____   __                           #
+# |  |/  |.---.-.|  |__|    |     |_|__|.-----.--.--.--.--.       #
+# |     < |  _  ||  |  |    |       |  ||     |  |  |_   _|       #
+# |__|\__||___._||__|__|    |_______|__||__|__|_____|__.__|       #
+#  _______               __          __ __                        #
+# |_     _|.-----.-----.|  |_.---.-.|  |  |.-----.----.           #
+#  _|   |_ |     |__ --||   _|  _  ||  |  ||  -__|   _|           #
+# |_______||__|__|_____||____|___._||__|__||_____|__|             #
+#                                                                 #
+# Author: Enríque González Aka (Usergh0st)                        #
+# Repository: https://github.com/Usergh0st/Machinepwn             #
+# Mail: tsohg.uncork054@passinbox.com                             #
+# Date: 11.07.2026 09:38 AM                                       #
+#                                                                 #
+# Description: Kali Linux installer script for machinepwn desktop #
+# environment, the script only works in distributions based on    #
+# debian and this script required root user passaworld.           #
+#                                                                 #
+# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>     #
+# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>     #
+# Licensed under GPL-3.0 license                                  #
+# =============================================================== #
 
-# Author: Enríque González Aka (Usergh0st)
-# Repository: https://github.com/Usergh0st/Machinepwn.git
-# Mail: usergh0stmail@proton.me
-# Date: 16.06.2026 10:22 AM
+# Display and debug output errors
+set -uo pipefail
 
-# Description: Kali Linux installer script for machinepwn desktop
-# environment the script only works in distributions based on
-# debian and this script required root user passaworld.
-
-# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>
-# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>
-# Licensed under GPL-3.0 license
-# =================================================================
+# Restart the entire terminal on startup
+reset
 
 # Colors use this script | colores en el script
 Cyan="\e[1;36m"
@@ -36,6 +42,7 @@ Bold="\e[1m"
 # Another utils variables | otras variables utiles
 who_user=$(whoami)
 os_name=$(grep -oP '(?<=^NAME=")[^"]*' /etc/os-release)
+sudo_pip=""
 
 # Utils variables | variables de utilidades
 bspwm="https://github.com/baskerville/bspwm.git"
@@ -47,15 +54,15 @@ fzftabgit="https://github.com/Aloxaf/fzf-tab.git"
 zsh_sudo="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh"
 
 # List of packages to install | lista de paquetes a instalar
-libs="libxcb-xkb-dev libxkbcommon-dev librsvg2-common build-essential libxcb1-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-keysyms1-dev \
+libs=(libxcb-xkb-dev libxkbcommon-dev librsvg2-common build-essential libxcb1-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-keysyms1-dev \
       libxcb-xinerama0-dev libxcb-shape0-dev libxcb-cursor-dev pkg-config libxcb-icccm4-dev libconfig-dev libdbus-1-dev libegl-dev libev-dev libepoxy-dev \
       libpcre2-dev libpixman-1-dev libx11-xcb-dev libxcb1-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev \
-      libxcb-randr0-dev libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev libxcb-xfixes0-dev meson ninja-build uthash-dev"
+      libxcb-randr0-dev libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev libxcb-xfixes0-dev meson ninja-build uthash-dev)
 
-xorg="xserver-xorg-core xserver-xorg-video-fbdev xserver-xorg-input-all x11-xserver-utils xinit xinput"
+xorg=(xserver-xorg-core xserver-xorg-video-fbdev xserver-xorg-input-all x11-xserver-utils xinit xinput)
 
-pkgs="polybar rofi alacritty zsh git wget curl net-tools xdotool pulseaudio-utils pulseaudio pavucontrol fzf psmisc \
-     fastfetch papirus-icon-theme adwaita-icon-theme bat firefox-esr openvpn bleachbit mousepad feh eza xclip"
+pkgs=(polybar rofi alacritty zsh git wget curl net-tools xdotool pulseaudio-utils pulseaudio pavucontrol fzf psmisc \
+fastfetch papirus-icon-theme adwaita-icon-theme bat firefox-esr openvpn bleachbit mousepad feh eza xclip)
 
 # Logo function | funcion del logo
 logo () {
@@ -64,92 +71,117 @@ logo () {
 
   printf '%b' "${Bold}${LightRed}"
   cat <<'LOGO'
-   ⠀⠀⠀⠀⠀⠀⠀⠄⠀⠰⡐⠀⠀⠀⠀⠀⠀⢀⣄⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-   ⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⣿⡆⠀⠀⠀⠄⠀⠈⢀⣤⣤⣬⣥⣤⣀⡀⠀⠀⠀⠂⠀⠑⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-   ⠀⠀⠀⠀⠀⠂⠀⠀⠑⠀⠀⠙⠃⠵⠀⢀⣴⣿⡿⠿⠿⠿⠿⠿⠿⢿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠒⠀⠀⠀
-   ⠀⠀⠀⠀⠀⠀⢰⣶⠀⠱⣆⠐⢦⡀⣠⣿⡟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣷⣆⡀⠸⠇⣀⠀⣐⢔⠈⠰⠰⠀⠀⠀⠀⠀
-   ⠀⠀⠀⠀⠀⠀⠀⠁⠰⠀⡾⠷⣴⣿⡿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⡀⠀⠉⠀⠛⠂⢀⠀⠀⠀⠀⠀⠀⠀
-   ⠀⠀⠀⣔⢄⠘⢄⡀⠉⠀⠀⢠⣾⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣷⡄⠀⠟⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀
-   ⢀⠀⠀⠉⡈⠀⣀⠑⣤⢾⡆⢸⣿⣿⠀⠀⠀⣀⣀⣀⠀⠀⠀⠀⢀⣀⣀⡀⠀⠀⣿⣿⣧⠰⠃⡀⠀⣤⠒⠊⠁⠀⠀⠀⠀
-   ⠀⠑⢤⣤⣄⠀⠉⠢⠀⠠⠓⢊⣿⣿⠀⠀⣾⣿⣿⣿⣷⠀⠀⢰⣿⣿⣿⣷⠀⠀⣿⣿⣿⠀⣀⠀⠤⠀⠀⠐⠀⠀⠠⠀⠀
-   ⠀⠀⠈⡉⠯⠃⠸⠗⠠⣀⡻⢶⣽⣿⡀⠀⠻⣿⣿⣿⡟⠀⡀⠸⣿⣿⣿⡟⠀⢀⣿⣿⣿⠀⠙⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀
-   ⠐⠤⠄⠀⠀⢀⠀⢄⡠⡍⠛⠻⣿⣿⣧⡀⠀⠉⠉⠉⠀⣾⣷⡄⠈⠉⠉⠀⣠⣾⣿⣿⡇⠀⠀⢈⣠⣶⠆⠀⠀⠀⠀⠂⠀
-   ⠀⠀⠀⠔⣄⢤⡀⠈⠀⠀⣠⣾⣿⣿⡿⣿⣶⣶⠂⠀⠀⠁⠈⠁⠀⠐⣶⣾⣿⡿⣩⣿⣿⣦⡄⠸⠝⠀⠀⠀⠀⠆⢐⠀⠀
-   ⠀⠈⠦⡀⠀⠀⠑⡄⢀⣼⣿⣿⣹⣿⣿⣷⣿⣿⣀⠸⡀⢠⡆⢠⡇⢀⣿⣿⠏⣴⣿⣿⢿⢋⣾⣄⠀⠀⠀⠀⠀⡀⠉⠀⠀
-   ⠈⣀⡀⠈⠃⡀⠈⢹⣟⢯⡿⣿⣏⠻⣯⣿⣎⡻⢿⣶⣷⣼⣧⣼⣷⣿⠟⠁⣴⣿⣿⠋⣸⣾⣿⣿⣦⠒⠒⠊⠉⢀⠐⠁⠀
-   ⠠⠛⠃⠠⠄⡀⡀⣾⣻⣿⣿⢟⣿⣦⡈⠙⡿⣿⣭⣍⣹⢿⣿⣿⡿⠁⠀⣾⣿⡟⣯⡾⣿⣯⡿⢛⣡⡇⠀⣠⠔⠁⠠⠀⠀
-   ⠄⠀⡀⠀⠀⠃⣬⡛⣛⠛⠾⣯⣟⢾⡅⠀⠀⠙⢻⠎⢻⠆⠙⡏⠁⠀⠰⡿⠛⣵⡿⠛⠉⣉⣵⣾⣿⣿⡏⠁⠀⠀⢀⠀⠀
-   ⢈⡆⠀⢴⣆⣠⣿⣿⡿⣷⣆⠈⠉⢡⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⡄⠀⠾⣟⣯⣿⣿⣿⡅⠀⢤⠀⡀⠀⠀
-   ⠀⠑⢄⠀⠉⢸⣷⣖⣛⣋⠙⠿⠄⢸⠀⣷⣿⣷⣶⣿⣿⣶⣷⣷⣾⣿⣶⣷⣾⡆⡇⠀⠻⠟⣱⣿⣭⣾⣇⠍⠁⠀⠠⠀⠀
-   ⢀⠀⠀⠶⠀⣿⣿⠿⣿⣿⣷⠦⠀⢸⠀⣿⣿⣿⣿⣿⡟⠉⠈⢿⣿⣿⣿⣿⣿⡇⡇⠀⢠⢾⠿⠶⣶⣿⣿⡄⢀⠀⠀⠀⠀
-   ⠀⠀⠄⠀⠀⣿⣷⡏⠀⠀⠀⣰⡀⢻⠀⣿⣿⣿⣿⣿⣷⣄⣰⣿⣿⣿⣿⣿⣿⡇⡿⠀⣰⡀⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀
-   ⠀⠀⠀⠀⠀⠻⣿⣷⣀⣠⣴⣿⡿⢾⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⡷⠾⣿⣿⣶⣶⣿⣿⡿⠃⠀⠀⠀⠀⠀
-   ⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠹⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠗⠉⠉⠉⠉⠉⠉⠀  ⠀⠀
+           =         -       :  .    ::.
+            @ :          @     .   =
+          .  @@     *@%@@*@@#@@  ..
+           * .  . @@:        . @@   @  =  #
+            :@ @@@=.           .-@@:  @ @
+   : . =  % :  +@.                @@ . @ .    :
+    @   *  .  @@#                 ##@  .     @
+     @    @-@ #@#   @@@     @@@   #@+@    @-
+   @@@   @ +  @@#  @@@@@  .@@@@@  #@%@.. @  -   @.
+    %@    #- @%+#  @@@@@   +@@@@  #@%@         #
+  ==      =.:=@+@+      @@@      @@#%    :@%
+    =+=:     @@@@@@@@-  .    :@@@@ *@@* @+    : =
+   @    @  *@@ @@@@@@  . @ +: @@@ @@@@ @
+     @   @@-@@@ @ @ @@@@ @ @@@@  @@@ @@@@ @@@   @
+  @@     @@@@@@@  @@@   @@@@@  @@@@.@@ @@ -   %
+      @ =@@@=@@#@   @@-@-:@=   @@=%@@--:@@@#=
+       +@#@:  @@                     %@@@@@-
+  @  @+@==-@@=  %  =  ===-..== = .% .-#:@@+@ ==
+       @@@@%    #=================#    @@@@@=  : -
+    : @@@ @@@ @ #-======   ======-#  +@  @@@@ @.
+   @  @*@.      #-===============-*  @  : %@@   =
+   - = +@@:#@@@ #----------=------* -@@@@@@@     :
+             . @@@@@@@@@@@@@@@@@@@@@.
 LOGO
   printf '%b\n' "${Reset}"
 }
 
 # Fetch or traps ctrl_c | function para traquear el ctrl_c y salir.⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 trap ctrl_c INT
+
 function ctrl_c () {
 	echo ""
-	echo -e "${Yellow}[!] ${LightRed}Ending the installer session! ${Reset} \n"
+	echo -e "${Yellow}[!] ${LightRed}Ending the installer session. ${Reset} \n"
 	exit 1
+}
+
+# It keeps the sudo session alive while the script runs
+extend_sudo_section () {
+	while true; do
+		sudo -n true
+		sleep 60
+		kill -0 "$$" 2>/dev/null || exit
+	done 2>/dev/null &
+	sudo_pip=$!
+}
+
+# Cleanup upon exiting the script (normal or by error/ctrl+c)
+trap cleanup_sudo EXIT
+
+cleanup_sudo () {
+	if [[ -n "${sudo_pip}" ]]; then
+		kill "${sudo_pip}" 2>/dev/null
+	fi
 }
 
 # Initial checks function | funcion de comprobaciones iniciales
 initial_checks () {
 
 	# Get root temporary permissions | obtener permisos temporales de root
-	reset ; logo ; sudo -v
+	clear ; logo ; sudo -v ; extend_sudo_section
 
 	# Check if the script is run from home directory | comprobar si el script se ejecuta desde el directorio home
-	if [ "${PWD}" != "${HOME}" ]; then
+	if [[ "${PWD}" != "${HOME}" ]]; then
 
-		reset ; clear ; logo
+		clear ; logo
 
-		echo -e "${Bold}${LightRed}                [ OS: ${Cyan}${os_name}${LightRed} ] ${Reset} \n"
+		echo -e "${Bold}${LightRed}                [ OS: ${Cyan}${os_name}${LightRed} ]${Reset} \n"
 
 		echo -e "${Blue}[*] ${White}That's script must be executed from home directory ${Reset}" ; sleep 00.5
 		echo -e "${Yellow}[!] ${White}Please move the script installer to your home directory ${Reset}" ; sleep 00.5
-		echo -e "${Blue}[*] ${White}And try to run it again dear user: ${LightRed}(${who_user}) ${Reset}" ; sleep 00.5
-		echo -e "${Yellow}[!] ${White}Current directory: ${LightRed}"${PWD}" ${Reset} \n" ; sleep 00.5
+		echo -e "${Blue}[*] ${White}And try to run it again dear user: ${LightRed}[${who_user}] ${Reset}" ; sleep 00.5
+		echo -e "${Yellow}[!] ${White}Current directory: ${LightRed}["${PWD}"] ${Reset} \n" ; sleep 00.5
 		exit 1
 	fi
 
 	# Check linux distro avalible (kali linux/debian) | comprobar distro de linux valido kali o debian
-	if [ -f /etc/os-release ]; then
+	if [[ -f /etc/os-release ]]; then
 		. /etc/os-release
-		if [ "$ID" != "kali" ] && [ "$ID" != "debian" ]; then
+		if [[ "${ID}" != "kali" ]] && [[ "${ID}" != "debian" ]]; then
 
-			reset ; clear ; logo
+			clear ; logo
 		
-			echo -e "${Bold}${LightRed}                [ OS: ${Cyan}${os_name}${LightRed} ] ${Reset} \n"
+			echo -e "${Bold}${LightRed}                [ OS: ${Cyan}${os_name}${LightRed} ]${Reset} \n"
 
-			echo -e "${Blue}[*] ${White}This installer is only for kali Linux or Debian based distros ${Reset}" ; sleep 00.5
-			echo -e "${Yellow}[!] ${White}Now your current distro is not supported ${Reset}" ; sleep 00.5
-			echo -e "${Yellow}[!] ${White}Your current distro is: ${LightRed}${os_name} ${Reset} \n" ; sleep 00.5
+			echo -e "${Blue}[*] ${White}This installer is only for kali Linux or debian based distros ${Reset}" ; sleep 00.5
+			echo -e "${Yellow}[!] ${White}Now your current distro is not supported. ${Reset}" ; sleep 00.5
+			echo -e "${Yellow}[!] ${White}Your current distro is: ${LightRed}["${os_name}"] ${Reset} \n" ; sleep 00.5
 			exit 1
 		fi
 	fi
 }
 
-# Welcome function | funcion de bienvenida
+# Installer welcome function | funcion de bienvenida del instalador
 welcome () {
 
-	reset ; clear ; logo
+	clear ; logo
 	
-	echo -e "${Bold}${LightRed}               [ Welcome: ${Cyan}${who_user}${LightRed} ] ${Reset} \n"
+	echo -e "${Bold}${LightRed}                 [ Welcome: ${Cyan}${who_user}${LightRed} ]${Reset} \n"
 
 	echo -e "${Cyan}This script will install my desktop environment and this is what it will do: ${Reset} \n"
-	echo -e "${Blue}[*] ${White}Download my desktop environment in: ${Green}${HOME}/cloning/Machinepwn${Reset}" ; sleep 00.5
+
+	echo -e "${Blue}[*] ${White}Download my desktop environment in: ${Green}[${HOME}/cloning/Machinepwn] ${Reset}" ; sleep 00.5
 	echo -e "${Blue}[*] ${White}Install required packages and necessary dependencies ${Reset}" ; sleep 00.5
-	echo -e "${Blue}[*] ${White}Backup of possible existing configurations like ${Green}(bspwm, polybar, etc...)${Reset}" ; sleep 00.5
-	echo -e "${Blue}[*] ${White}Install and setup the desktop environment ${Green}(Machinepwn)${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Backup of possible existing configurations like ${Green}[bspwm, polybar, etc...] ${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Install and setup the desktop environment ${Green}[Machinepwn] ${Reset}" ; sleep 00.5
 	echo -e "${Blue}[*] ${White}Enabling some service and change your shell to zsh shell ${Reset} \n" ; sleep 00.5
+
 	echo -e "${Yellow}[!] ${LightRed}My desktop environment doesn't modify any of your system settings ${Reset}" ; sleep 00.5
 	echo -e "${Yellow}[!] ${LightRed}This script does not have the potential to break your system ${Reset} \n" ; sleep 00.5
-	echo -ne "${Cyan}Press ${Green}return${Cyan} to start the installation or ${LightRed}(ctrl+c)${Cyan} to exit${Reset} "
+
+	echo -ne "${Cyan}Press ${Green}return${Cyan} to start the installation or ${LightRed}[ctrl+c]${Cyan} to exit${Reset} "
 	read
 }
 
@@ -158,13 +190,13 @@ install_dependencies () {
 
 	# Install required packages and dependencies | instalar paquetes y dependencias necesarias
 	
-	reset ; clear ; logo
+	clear ; logo
 	
-	echo -e "${Bold}${LightRed}        [ Install necessary dependencias ] ${Reset} \n"
+	echo -e "${Bold}${LightRed}         [ Install necessary dependencies ]${Reset} \n"
 
 	echo -e "${Blue}[*] ${White}Updating and installing required packages and dependencies ${Reset} \n" ; sleep 1
 
-	sudo apt update ; sudo apt full-upgrade -y ; sudo apt install -y ${libs} ${xorg} ${pkgs} --no-install-recommends
+	sudo apt update ; sudo apt full-upgrade -y ; sudo apt install -y "${libs[@]}" "${xorg[@]}" "${pkgs[@]}" --no-install-recommends
 
 	echo ""
 	echo -e "${Green}[i] ${White}Once done the system was updated and the necessary dependencies were installed ${Reset} \n" ; sleep 3
@@ -173,16 +205,16 @@ install_dependencies () {
 # Install bspwm, sxhkd and others function | funcion de instalacion de bspwm, sxhkd y otros
 install_bspwm_sxhkd_and_others () {
 
-	reset ; clear ; logo
+	clear ; logo
 
-	echo -e "${Bold}${LightRed}          [ Install bspwn, sxhkd, picom ] ${Reset} \n"
+	echo -e "${Bold}${LightRed}          [ Install bspwn, sxhkd, picom ]${Reset} \n"
 
 	# Clone repositories | clonar repositorios
 	echo -e "${Blue}[*] ${White}Cloning repositories in the current working folder ${Reset} \n" ; sleep 1
 
 		# Checks folder exist or no | comprobar si la carpeta existe o no
-		if [ -d "${HOME}/cloning" ]; then
-			echo -e "${Yellow}[!] ${White}The folder ${LightRed}(cloning)${White} already exists in your home directory ${Reset} \n" ; sleep 1
+		if [[ -d "${HOME}/cloning" ]]; then
+			echo -e "${Yellow}[!] ${White}The folder ${LightRed}[cloning]${White} already exists in your home directory ${Reset} \n" ; sleep 1
 			rm -rf "${HOME}/cloning"
 		fi
 
@@ -219,51 +251,51 @@ install_bspwm_sxhkd_and_others () {
 }
 
 # Backup old configurations function | funcion de backup de configuraciones antiguas
-Backup_old_configurations () {
+backup_old_configurations () {
 
-	reset ; clear ; logo
+	clear ; logo
 	
-	echo -e "${Bold}${LightRed}         [ Backups user configurations ] ${Reset} \n"
+	echo -e "${Bold}${LightRed}          [ Backups user configurations ]${Reset} \n"
 
 	# Backup old configurations | hacer backup de las configuraciones antiguas
 	cd "${HOME}" ; mkdir -p "backup" ; cd "backup"
 
-	if [ -d "${HOME}/.config/bspwm" ]; then
+	if [[ -d "${HOME}/.config/bspwm" ]]; then
 		mv "${HOME}/.config/bspwm" "${HOME}/backup/bspwm.bak_$(date +%Y%m%d%H%M%S)"
 		echo -e "${Green}[i] ${White}bspwm folder configuration backed up ${Reset}" ; sleep 00.5
 	else
 		echo -e "${Blue}[*] ${White}No existing bspwm configuration found skipping backup ${Reset}" ; sleep 00.5
 	fi
 
-	if [ -d "${HOME}/.config/sxhkd" ]; then
+	if [[ -d "${HOME}/.config/sxhkd" ]]; then
 		mv "${HOME}/.config/sxhkd" "${HOME}/backup/sxhkd.bak_$(date +%Y%m%d%H%M%S)"
 		echo -e "${Green}[i] ${White}sxhkd folder configuration backed up ${Reset}" ; sleep 00.5
 	else
 		echo -e "${Blue}[*] ${White}No existing sxhkd configuration found skipping backup ${Reset}" ; sleep 00.5
 	fi
 
-	if [ -d "${HOME}/.config/polybar" ]; then
+	if [[ -d "${HOME}/.config/polybar" ]]; then
 		mv "${HOME}/.config/polybar" "${HOME}/backup/polybar.bak_$(date +%Y%m%d%H%M%S)"
 		echo -e "${Green}[i] ${White}polybar folder configuration backed up ${Reset}" ; sleep 00.5
 	else
 		echo -e "${Blue}[*] ${White}No existing polybar configuration found skipping backup ${Reset}" ; sleep 00.5
 	fi
 
-	if [ -d "${HOME}/.config/alacritty" ]; then
+	if [[ -d "${HOME}/.config/alacritty" ]]; then
 		mv "${HOME}/.config/alacritty" "${HOME}/backup/alacritty.bak_$(date +%Y%m%d%H%M%S)"
 		echo -e "${Green}[i] ${White}alacritty folder configuration backed up ${Reset}" ; sleep 00.5
 	else
 		echo -e "${Blue}[*] ${White}No existing alacritty configuration found skipping backup ${Reset}" ; sleep 1.1
 	fi
 
-	if [ -d "${HOME}/.config/picom" ]; then
+	if [[ -d "${HOME}/.config/picom" ]]; then
 		mv "${HOME}/.config/picom" "${HOME}/backup/picom.bak_$(date +%Y%m%d%H%M%S)"
 		echo -e "${Green}[i] ${White}picom folder configuration backed up ${Reset}" ; sleep 00.5
 	else
 		echo -e "${Blue}[*] ${White}No existing picom configuration found skipping backup ${Reset}" ; sleep 00.5
 	fi
 
-	if [ -f "${HOME}/.zshrc" ]; then
+	if [[ -f "${HOME}/.zshrc" ]]; then
 		mv "${HOME}/.zshrc" "${HOME}/backup/zshrc.bak_$(date +%Y%m%d%H%M%S)"
 		echo -e "${Green}[i] ${White}.zshrc file configuration backed up ${Reset} \n" ; sleep 00.5
 	else
@@ -274,20 +306,20 @@ Backup_old_configurations () {
 # Change the default shell to zsh | cambiar la shell por defecto a zsh
 machinepwn_change_default_shell () {
 
-	reset ; clear ; logo
+	clear ; logo
 	
-	echo -e "${Bold}${LightRed}          [ Change your shell to Zsh ] ${Reset} \n"
+	echo -e "${Bold}${LightRed}           [ Change your shell to zsh ]${Reset} \n"
 
 	who_user=$(whoami)
 	zsh_path=$(command -v zsh)
 	echo -e "${Blue}[*] ${White}Changing the shell to zsh for the user ${LightRed}(${who_user}) ${Reset}" ; sleep 00.5
 
-    	if [ -z "${zsh_path}" ]; then
+    	if [[ -z "${zsh_path}" ]]; then
         	echo -e "${Yellow}[!] ${LightRed}The shell zsh is not installed cannot change shell ${Reset}" ; sleep 00.5
 		return 1
     	fi
 
-	if [ "${SHELL}" != "${zsh_path}" ]; then
+	if [[ "${SHELL}" != "${zsh_path}" ]]; then
 
         	echo -e "${Blue}[*] ${White}Changing your shell to zsh please wait ${Reset} \n" ; sleep 00.5
 
@@ -305,9 +337,9 @@ machinepwn_change_default_shell () {
 # Install machinepwn configuration files function | funcion de instalacion de archivos de configuracion de machinepwn
 install_machinepwn_configurations () {
 
-	reset ; clear ; logo
+	clear ; logo
 	
-	echo -e "${Bold}${LightRed}       [ Install machinepwn configurations ] ${Reset} \n"
+	echo -e "${Bold}${LightRed}        [ Install machinepwn configurations ]${Reset} \n"
 
 	# Copying directories also add permissions | copiando directorios y agregando permisos
 	echo -e "${Blue}[*] ${White}Installing machinepwn configuration please wait ${Reset}" ; sleep 00.5
@@ -325,7 +357,7 @@ install_machinepwn_configurations () {
 	cp .xinitrc .zprofile .zshrc .p10k.zsh "${HOME}"
 
 	# Check if the destination folders exist | check if the destination folders exist
-	if [ -d "${HOME}/.local/share" ]; then
+	if [[ -d "${HOME}/.local/share" ]]; then
 
 		# Installing the fonts | instalar las fuentes
 		cd "${HOME}/cloning/Machinepwn/home/"
@@ -360,7 +392,7 @@ install_machinepwn_configurations () {
 	elif command -v curl &>/dev/null; then
 		sudo curl -LO ${zsh_sudo} &>/dev/null
 	else
-		echo -e "${Yellow}[!] ${LightRed}Error (curl) or (wget) binaries not found ${Reset}" ; sleep 2
+		echo -e "${Yellow}[!] ${LightRed}Error [curl, wget] binaries not found ${Reset}" ; sleep 2
 		echo -e "${Blue}[*] ${White}The installation will complete but you will need to manually install the sudo plugin ${Reset}" ; sleep 1
 		return 1
 	fi
@@ -372,9 +404,9 @@ install_machinepwn_configurations () {
 # Configure and enable some services | confugurando y habilitando algunos servicios
 machinepwn_configure_services () {
 
-	reset ; clear ; logo
+	clear ; logo
 	
-	echo -e "${Bold}${LightRed}           [ Configure some services ] ${Reset} \n"
+	echo -e "${Bold}${LightRed}            [ Configure some services ]${Reset} \n"
 
 	echo -e "${Blue}[*] ${White}Configure and enable some services ${Reset}" ; sleep 00.5
 
@@ -397,9 +429,9 @@ machinepwn_configure_services () {
 # The final steps | ultimos pasos finales para la instalacion
 machinepwn_final_steps () {
 
-	reset ; clear ; logo
+	clear ; logo
 	
-	echo -e "${Bold}${LightRed}                 [ Final steps ] ${Reset} \n"
+	echo -e "${Bold}${LightRed}                  [ Final steps ]${Reset} \n"
 
 	echo -e "${Blue}[*] ${White}Deleting cloning folder and clean apt ${Reset}" ; sleep 00.5
 	
@@ -408,20 +440,16 @@ machinepwn_final_steps () {
 	sudo apt autoclean -y &>/dev/null
 	sudo rm -rf ${HOME}/cloning &>/dev/null
 
-	echo -e "${Green}[i] ${White}Almost everything is ready ${Reset} \n" ; sleep 00.5
-	echo -ne "${Cyan}[?] ${White}Do you want to restart the system? ${LightRed}(y/n) ${Reset}"
-	read choice
+	echo -e "${Green}[i] ${White}Almost everything is ready please wait${Reset} \n" ; sleep 1
+	echo -e "${Blue}[*] ${White}It is recommended to restart for the configuration to take effect${Reset}"
+	echo -ne "${Cyan}[?] ${White}Do you want to restart the system? ${LightRed}[Y/n] ${Reset}"
+	read destiny
 
-	if [ ${choice} == "y" ]; then
-		echo ""
-		echo -e "${Green}[i] ${White}Restarting the system ${Reset}" ; sleep 3
-		sudo systemctl reboot
-	else
-		echo ""
-		echo -e "${Yellow}[!] ${LightRed}The user aborting restart ${Reset}" ; sleep 3
-		echo -e "${Yellow}[!] ${LightRed}Exiting the script goodbye ${Reset} \n" ; sleep 3
-		exit 1
-	fi
+	case ${destiny} in
+		y|Y) echo -e "${Green}[i] ${White}Restarting the system please wait ${Reset}" ; sleep 2 ; sudo systemctl reboot ;;
+		n|N) echo -e "${Yellow}[!] ${White}Aborting restart exiting the script goodbye ${Reset}" ; sleep 3 ; exit 0 ;;
+		*) echo -e "${Yellow}[!] ${LightRed}Invalid option exiting ${Reset}" ; sleep 2 ; exit 1
+	esac
 }
 
 # Main routine | rutina principal
@@ -430,7 +458,7 @@ welcome
 
 install_dependencies
 install_bspwm_sxhkd_and_others
-Backup_old_configurations
+backup_old_configurations
 machinepwn_change_default_shell
 
 install_machinepwn_configurations
