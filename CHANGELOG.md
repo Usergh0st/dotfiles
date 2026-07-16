@@ -4,17 +4,17 @@
 
 ### New
 
-- New script to see updates avaliable on the polybar module. [KaliUpdates.sh](https://github.com/Usergh0st/Machinepwn/blob/master/home/.config/bspwm/src/KaliUpdates.sh)
-    - [commit](https://github.com/Usergh0st/Machinepwn/commit/a40b470e6ccae05943af66f6be18f9e04804c836)
+- New script to see updates avaliable on the polybar module. [KaliUpdates.sh](https://github.com/Usergh0st/dotfiles/blob/master/home/.config/bspwm/src/KaliUpdates.sh)
+    - [commit](https://github.com/Usergh0st/dotfiles/commit/a40b470e6ccae05943af66f6be18f9e04804c836)
 - New config of picom transparency now you have transparency windows on terminal, polybar, (etc)
-    - [commit](https://github.com/Usergh0st/Machinepwn/commit/bc489af43a8047427a727a85025bea16aaaf7cab)
+    - [commit](https://github.com/Usergh0st/dotfiles/commit/bc489af43a8047427a727a85025bea16aaaf7cab)
 
 ### Changes
 
 - Code refactoring and cleaning
 - Some changes in the polybar homebar and BarPwn
 - Fix zcompdump error paths
-- Fixed some error in script. [KaliUpdates.sh](https://github.com/Usergh0st/Machinepwn/blob/master/home/.config/bspwm/src/KaliUpdates.sh)
+- Fixed some error in script. [KaliUpdates.sh](https://github.com/Usergh0st/dotfiles/blob/master/home/.config/bspwm/src/KaliUpdates.sh)
 - Some bug fixes and refactoring
 
 ### Previews
@@ -45,30 +45,30 @@ Update module; with this you can see how many packages you need to update.
 
 ### New
 
-- New script to configure screen monitor. [MonitorSetup.sh](https://github.com/Usergh0st/Machinepwn/blob/master/home/.config/bspwm/src/MonitorSetup.sh)
-- New script to configure custom monitor resolution. [CustomResolution.sh](https://github.com/Usergh0st/Machinepwn/blob/master/home/.config/bspwm/src/CustomResolution.sh)
-- New script to install this environment. [KaliInstaller.sh](https://github.com/Usergh0st/Machinepwn/blob/master/KaliInstaller.sh)
-- New script to select a ramdon wallpapers. [WallSelect.sh](https://github.com/Usergh0st/Machinepwn/blob/master/home/.config/bspwm/src/WallSelect.sh)
+- New script to configure screen monitor. [MonitorSetup.sh](https://github.com/Usergh0st/dotfiles/blob/master/home/.config/bspwm/src/MonitorSetup.sh)
+- New script to configure custom monitor resolution. [CustomResolution.sh](https://github.com/Usergh0st/dotfiles/blob/master/home/.config/bspwm/src/CustomResolution.sh)
+- New script to install this environment. [KaliInstaller.sh](https://github.com/Usergh0st/dotfiles/blob/master/KaliInstaller.sh)
+- New script to select a ramdon wallpapers. [WallSelect.sh](https://github.com/Usergh0st/dotfiles/blob/master/home/.config/bspwm/src/WallSelect.sh)
 - New fonts added, for powerlevel10k, polybar. (etc...)
-    - [commit](https://github.com/Usergh0st/Machinepwn/commit/4ad3519f59c5494c6625639ed273c960fd30e350)
+    - [commit](https://github.com/Usergh0st/dotfiles/commit/4ad3519f59c5494c6625639ed273c960fd30e350)
 - New added (.zshrc) powerlevel10k theme, and more things.
-    - [commit](https://github.com/Usergh0st/Machinepwn/commit/1d417e9216c09a86953c85b4a94710aa3672d911)
-    - [commit](https://github.com/Usergh0st/Machinepwn/commit/6986203675c4979965995184d8ac23d37015100b)
-    - [commit](https://github.com/Usergh0st/Machinepwn/commit/747cf0fdea2725e498f46921484dc4c0bb9e948c)
+    - [commit](https://github.com/Usergh0st/dotfiles/commit/1d417e9216c09a86953c85b4a94710aa3672d911)
+    - [commit](https://github.com/Usergh0st/dotfiles/commit/6986203675c4979965995184d8ac23d37015100b)
+    - [commit](https://github.com/Usergh0st/dotfiles/commit/747cf0fdea2725e498f46921484dc4c0bb9e948c)
 - New polybar homebar, another polybar to avoid doing penetration testing.
-    - [commit](https://github.com/Usergh0st/Machinepwn/commit/96458883742ff63f383015046593b3828084a298)
+    - [commit](https://github.com/Usergh0st/dotfiles/commit/96458883742ff63f383015046593b3828084a298)
 
 ### Changes
 
 - The (target.sh) script was corrected, it's does not update because of the empty string.
     - module spaces were ordered in the polybar.
-    - [commit](https://github.com/Usergh0st/Machinepwn/commit/e754bd2c813abff99d193432837e2b4f2b7f607a)
+    - [commit](https://github.com/Usergh0st/dotfiles/commit/e754bd2c813abff99d193432837e2b4f2b7f607a)
 - Remove (.gitignore) and (pkgs.md) unnecessary files.
-    - [commit](https://github.com/Usergh0st/Machinepwn/commit/10545825f80903ea705840e6368933e5d34138b1)
+    - [commit](https://github.com/Usergh0st/dotfiles/commit/10545825f80903ea705840e6368933e5d34138b1)
 - Remove (previews) directory unnecessary.
-    - [commit](https://github.com/Usergh0st/Machinepwn/commit/77f832c14ba2df540a7a247d0e12ef2eb76d58cf)
+    - [commit](https://github.com/Usergh0st/dotfiles/commit/77f832c14ba2df540a7a247d0e12ef2eb76d58cf)
 - Some files in (src) were edited, but one file was renamed.
-    - [commit](https://github.com/Usergh0st/Machinepwn/commit/1e6407045ad7fbef800f584f942c5bea8c561410)
+    - [commit](https://github.com/Usergh0st/dotfiles/commit/1e6407045ad7fbef800f584f942c5bea8c561410)
 - Minor changes to some files, the installer was improved (KaliInstaller.sh)
 - Some icons in the polybar were changed, and some things were edited.
 
@@ -188,7 +188,7 @@ New rofi launcher apps.
 
 ---
 
-## Start of the Machinepwn project, forming the desktop environment.
+## Start of the dotfiles project, forming the desktop environment.
 
 ##### Tuesday 07 October 2025
 

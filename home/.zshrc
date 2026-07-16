@@ -1,27 +1,29 @@
-# =============================================================================
-#                  __
-#    .-----.-----.|  |--.----.----.
-#  __|-- __|__ --||     |   _|  __|
-# |__|_____|_____||__|__|__| |____|
-#                   __
-# .---.-.----.----.|  |--.
-# |  _  |   _|  __||     |
-# |___._|__| |____||__|__|
-#     __         __     __
-# .--|  |.-----.|  |--.|__|.---.-.-----.
-# |  _  ||  -__||  _  ||  ||  _  |     |
-# |_____||_____||_____||__||___._|__|__|
-
-# Author: Enríque González Aka (Usergh0st)
-# Repository: https://github.com/Usergh0st/Machinepwn.git
-# Mail: usergh0stmail@proton.me
-
-# Edit this file settings to adjust it your way, user hack the world.
-# Depends: eza zsh zsh-syntax-highlighting zsh-autosuggestions aur/scrub
-# batcat fzf powerlevel10k sudo_plugin xclip.
-# Date: 14.01.2026 09:18 AM
-# Tested: Kali/Arch
-# =============================================================================
+# ============================================================================== #
+#                  __                                                            #
+#    .-----.-----.|  |--.----.----.                                              #
+#  __|-- __|__ --||     |   _|  __|                                              #
+# |__|_____|_____||__|__|__| |____|                                              #
+#                   __                                                           #
+# .---.-.----.----.|  |--.                                                       #
+# |  _  |   _|  __||     |                                                       #
+# |___._|__| |____||__|__|                                                       #
+#     __         __     __                                                       #
+# .--|  |.-----.|  |--.|__|.---.-.-----.                                         #
+# |  _  ||  -__||  _  ||  ||  _  |     |                                         #
+# |_____||_____||_____||__||___._|__|__|                                         #
+#                                                                                #
+# Author: Enríque González Aka (Usergh0st)                                       #
+# Repository: https://github.com/Usergh0st/dotfiles                              #
+# Mail: tsohg.uncork054@passinbox.com                                            #
+#                                                                                #
+# Edit this file settings to adjust it your way user hack the world.             #
+# Dependencies:                                                                  #
+#             → eza, zsh, zsh-syntax-highlighting, zsh-autosuggestions aur/scrub #
+#             → fzf, powerlevel10k, sudo_plugin, xclip                           #
+#                                                                                #
+# Date: 12.07.2026 09:47 AM                                                      #
+# Tested: Kali/Arch                                                              #
+# ============================================================================== #
 
 # If not running interactively, don't do anything.
 [[ $- != *i* ]] && return
@@ -222,7 +224,7 @@ function rmk () {
 }
 
 # Function mkt create working directorys.
-function mkt() {
+function mkt () {
 	echo -e "            __     __     "
 	echo -e " .--------.|  |--.|  |_   "
 	echo -e " |        ||    < |   _|  "
@@ -295,6 +297,5 @@ fi
 # |__ --||   _|  _  |   _||   _|  ||     |  _  |
 # |_____||____|___._|__|  |____|__||__|__|___  |
 #                                        |_____|
-# Auto-start things.
-
+# Auto-start things
 # disable-fzf-tab

@@ -1,27 +1,27 @@
 #!/usr/bin/env bash
-# =============================================================== #
-#  _______             __         _____   __                      #
-# |   _   |.----.----.|  |--.    |     |_|__|.-----.--.--.--.--.  #
-# |       ||   _|  __||     |    |       |  ||     |  |  |_   _|  #
-# |___|___||__| |____||__|__|    |_______|__||__|__|_____|__.__|  #
-#  _______               __          __ __                        #
-# |_     _|.-----.-----.|  |_.---.-.|  |  |.-----.----.           #
-#  _|   |_ |     |__ --||   _|  _  ||  |  ||  -__|   _|           #
-# |_______||__|__|_____||____|___._||__|__||_____|__|             #
-#                                                                 #
-# Author: Enríque González Aka (Usergh0st)                        #
-# Repository: https://github.com/Usergh0st/Machinepwn             #
-# Mail: tsohg.uncork054@passinbox.com                             #
-# Date: 11.07.2026 09:38 AM                                       #
-#                                                                 #
-# Description: Arch linux installer script for machinepwn desktop #
-# environment the installer only works in arch linux, no others   #
-# distros and this script required root user passworld.           #
-#                                                                 #
-# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>     #
-# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>     #
-# Licensed under GPL-3.0 license                                  #
-# =============================================================== #
+# ====================================================================== #
+#  _______             __         _____   __                             #
+# |   _   |.----.----.|  |--.    |     |_|__|.-----.--.--.--.--.         #
+# |       ||   _|  __||     |    |       |  ||     |  |  |_   _|         #
+# |___|___||__| |____||__|__|    |_______|__||__|__|_____|__.__|         #
+#  _______               __          __ __                               #
+# |_     _|.-----.-----.|  |_.---.-.|  |  |.-----.----.                  #
+#  _|   |_ |     |__ --||   _|  _  ||  |  ||  -__|   _|                  #
+# |_______||__|__|_____||____|___._||__|__||_____|__|                    #
+#                                                                        #
+# Author: Enríque González Aka (Usergh0st)                               #
+# Repository: https://github.com/Usergh0st/dotfiles                      #
+# Mail: tsohg.uncork054@passinbox.com                                    #
+# Date: 12.07.2026 09:14 AM                                              #
+#                                                                        #
+# Description: Arch linux installer script for my dotfiles the installer #
+# only works in arch linux, no others, distros and this script required  #
+# root user passworld.                                                   #
+#                                                                        #
+# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>            #
+# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>            #
+# Licensed under GPL-3.0 license                                         #
+# ====================================================================== #
 
 # Display and debug output errors
 set -uo pipefail
@@ -46,7 +46,7 @@ sudo_pip=""
 
 # Utils variables | variables de utilidades
 blackarch="https://blackarch.org/strap.sh"
-url_repo="https://github.com/Usergh0st/Machinepwn.git"
+url_repo="https://github.com/Usergh0st/dotfiles.git"
 zsh_sudo="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh"
 
 # List of packages to install | lista de paquetes a instalar
@@ -132,7 +132,7 @@ initial_checks () {
 
 		clear ; logo
 		
-		echo -e "${Bold}${LightRed}                 [OS: ${Cyan}${os_name}${LightRed}] ${Reset} \n"
+		echo -e "${Bold}${LightRed}                  [OS: ${Cyan}${os_name}${LightRed}] ${Reset} \n"
 		
 		echo -e "${Blue}[*] ${White}That's script must be executed from home directory ${Reset}" ; sleep 00.5
 		echo -e "${Yellow}[!] ${White}Please move the script installer to your home directory ${Reset}" ; sleep 00.5
@@ -148,7 +148,7 @@ initial_checks () {
 			
 			clear ; logo
 		
-			echo -e "${Bold}${LightRed}                [ OS: ${Cyan}${os_name}${LightRed} ] ${Reset} \n"
+			echo -e "${Bold}${LightRed}                 [ OS: ${Cyan}${os_name}${LightRed} ] ${Reset} \n"
 
 			echo -e "${Blue}[*] ${White}This installer is only for arch linux or manjaro based distros ${Reset}" ; sleep 00.5
 			echo -e "${Yellow}[!] ${White}Now your current distro is not supported. ${Reset}" ; sleep 00.5
@@ -165,12 +165,13 @@ welcome () {
 	
 	echo -e "${Bold}${LightRed}               [ Welcome: ${Cyan}${who_user}${LightRed} ] ${Reset} \n"
 	
-	echo -e "${Cyan}This script will install my desktop environment and this is what it will do: ${Reset} \n"
+	echo -e "${Cyan}This script will install my dotfiles and this is what it will do: ${Reset} \n"
 
-	echo -e "${Blue}[*] ${White}Download my desktop environment in: ${Green}[${HOME}/cloning/Machinepwn] ${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}2 Repositories will be installed: ${Green}[blackarch, chaotic-aur]  ${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Download my desktop environment in: ${Green}[${HOME}/cloning/dotfiles] ${Reset}" ; sleep 00.5
 	echo -e "${Blue}[*] ${White}Install required packages and necessary dependencies ${Reset}" ; sleep 00.5
-	echo -e "${Blue}[*] ${White}Backup of possible existing configurations like ${Green}[bspwm, polybar, etc...] ${Reset}" ; sleep 00.5
-	echo -e "${Blue}[*] ${White}Install and setup the desktop environment ${Green}[Machinepwn] ${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Backup of possible existing configurations like: ${Green}[bspwm, polybar, etc...] ${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Install and setup my configuration from: ${Green}[dotfiles] ${Reset}" ; sleep 00.5
 	echo -e "${Blue}[*] ${White}Enabling some service and change your shell to zsh shell ${Reset} \n" ; sleep 00.5
 
 	echo -e "${Yellow}[!] ${LightRed}My desktop environment doesn't modify any of your system settings ${Reset}" ; sleep 00.5

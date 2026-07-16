@@ -1,7 +1,7 @@
 #!/bin/sh
 # =================================================== #
 # Author: Enríque González Aka (Usergh0st)            #
-# Repository: https://github.com/Usergh0st/Machinepwn #
+# Repository: https://github.com/Usergh0st/dotfiles   #
 # Mail: tsohg.uncork054@passinbox.com                 #
 # Date: 11.07.2026 09:27 AM                           #
 #                                                     #

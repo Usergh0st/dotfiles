@@ -1,27 +1,27 @@
 #!/usr/bin/env bash
-# =============================================================== #
-#  __  __         __ __      _____   __                           #
-# |  |/  |.---.-.|  |__|    |     |_|__|.-----.--.--.--.--.       #
-# |     < |  _  ||  |  |    |       |  ||     |  |  |_   _|       #
-# |__|\__||___._||__|__|    |_______|__||__|__|_____|__.__|       #
-#  _______               __          __ __                        #
-# |_     _|.-----.-----.|  |_.---.-.|  |  |.-----.----.           #
-#  _|   |_ |     |__ --||   _|  _  ||  |  ||  -__|   _|           #
-# |_______||__|__|_____||____|___._||__|__||_____|__|             #
-#                                                                 #
-# Author: Enríque González Aka (Usergh0st)                        #
-# Repository: https://github.com/Usergh0st/Machinepwn             #
-# Mail: tsohg.uncork054@passinbox.com                             #
-# Date: 11.07.2026 09:38 AM                                       #
-#                                                                 #
-# Description: Kali Linux installer script for machinepwn desktop #
-# environment, the script only works in distributions based on    #
-# debian and this script required root user passaworld.           #
-#                                                                 #
-# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>     #
-# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>     #
-# Licensed under GPL-3.0 license                                  #
-# =============================================================== #
+# ==================================================================== #
+#  __  __         __ __      _____   __                                #
+# |  |/  |.---.-.|  |__|    |     |_|__|.-----.--.--.--.--.            #
+# |     < |  _  ||  |  |    |       |  ||     |  |  |_   _|            #
+# |__|\__||___._||__|__|    |_______|__||__|__|_____|__.__|            #
+#  _______               __          __ __                             #
+# |_     _|.-----.-----.|  |_.---.-.|  |  |.-----.----.                #
+#  _|   |_ |     |__ --||   _|  _  ||  |  ||  -__|   _|                #
+# |_______||__|__|_____||____|___._||__|__||_____|__|                  #
+#                                                                      #
+# Author: Enríque González Aka (Usergh0st)                             #
+# Repository: https://github.com/Usergh0st/dotfiles                    #
+# Mail: tsohg.uncork054@passinbox.com                                  #
+# Date: 12.07.2026 09:38 AM                                            #
+#                                                                      #
+# Description: Kali Linux installer script for my dotfiles the script  #
+# only works in distributions based on debian and this script required #
+# root user passaworld.                                                #
+#                                                                      #
+# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>          #
+# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>          #
+# Licensed under GPL-3.0 license                                       #
+# ==================================================================== #
 
 # Display and debug output errors
 set -uo pipefail
@@ -48,7 +48,7 @@ sudo_pip=""
 bspwm="https://github.com/baskerville/bspwm.git"
 sxhkd="https://github.com/baskerville/sxhkd.git"
 picom="https://github.com/yshui/picom.git"
-repo_url="https://github.com/Usergh0st/Machinepwn.git"
+repo_url="https://github.com/Usergh0st/dotfiles.git"
 powerlevel10k="https://github.com/romkatv/powerlevel10k.git"
 fzftabgit="https://github.com/Aloxaf/fzf-tab.git"
 zsh_sudo="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh"
@@ -137,7 +137,7 @@ initial_checks () {
 
 		clear ; logo
 
-		echo -e "${Bold}${LightRed}                [ OS: ${Cyan}${os_name}${LightRed} ]${Reset} \n"
+		echo -e "${Bold}${LightRed}                 [ OS: ${Cyan}${os_name}${LightRed} ]${Reset} \n"
 
 		echo -e "${Blue}[*] ${White}That's script must be executed from home directory ${Reset}" ; sleep 00.5
 		echo -e "${Yellow}[!] ${White}Please move the script installer to your home directory ${Reset}" ; sleep 00.5
@@ -153,7 +153,7 @@ initial_checks () {
 
 			clear ; logo
 		
-			echo -e "${Bold}${LightRed}                [ OS: ${Cyan}${os_name}${LightRed} ]${Reset} \n"
+			echo -e "${Bold}${LightRed}                 [ OS: ${Cyan}${os_name}${LightRed} ]${Reset} \n"
 
 			echo -e "${Blue}[*] ${White}This installer is only for kali Linux or debian based distros ${Reset}" ; sleep 00.5
 			echo -e "${Yellow}[!] ${White}Now your current distro is not supported. ${Reset}" ; sleep 00.5
@@ -170,12 +170,12 @@ welcome () {
 	
 	echo -e "${Bold}${LightRed}                 [ Welcome: ${Cyan}${who_user}${LightRed} ]${Reset} \n"
 
-	echo -e "${Cyan}This script will install my desktop environment and this is what it will do: ${Reset} \n"
+	echo -e "${Cyan}This script will install my dotfiles and this is what it will do: ${Reset} \n"
 
-	echo -e "${Blue}[*] ${White}Download my desktop environment in: ${Green}[${HOME}/cloning/Machinepwn] ${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Download my desktop environment in: ${Green}[${HOME}/cloning/dotfiles] ${Reset}" ; sleep 00.5
 	echo -e "${Blue}[*] ${White}Install required packages and necessary dependencies ${Reset}" ; sleep 00.5
-	echo -e "${Blue}[*] ${White}Backup of possible existing configurations like ${Green}[bspwm, polybar, etc...] ${Reset}" ; sleep 00.5
-	echo -e "${Blue}[*] ${White}Install and setup the desktop environment ${Green}[Machinepwn] ${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Backup of possible existing configurations like: ${Green}[bspwm, polybar, etc...] ${Reset}" ; sleep 00.5
+	echo -e "${Blue}[*] ${White}Install and setup my configuration from: ${Green}[dotfiles] ${Reset}" ; sleep 00.5
 	echo -e "${Blue}[*] ${White}Enabling some service and change your shell to zsh shell ${Reset} \n" ; sleep 00.5
 
 	echo -e "${Yellow}[!] ${LightRed}My desktop environment doesn't modify any of your system settings ${Reset}" ; sleep 00.5
@@ -186,7 +186,7 @@ welcome () {
 }
 
 # Install dependencies function | funcion de instalacion de dependencias
-install_dependencies () {
+dotfiles_install_dependencies () {
 
 	# Install required packages and dependencies | instalar paquetes y dependencias necesarias
 	
@@ -304,7 +304,7 @@ backup_old_configurations () {
 }
 
 # Change the default shell to zsh | cambiar la shell por defecto a zsh
-machinepwn_change_default_shell () {
+dotfiles_change_default_shell () {
 
 	clear ; logo
 	
@@ -334,16 +334,16 @@ machinepwn_change_default_shell () {
 	fi
 }
 
-# Install machinepwn configuration files function | funcion de instalacion de archivos de configuracion de machinepwn
-install_machinepwn_configurations () {
+# Install dotfiles configuration files function | funcion de instalacion de archivos de configuracion de los dotfiles
+install_dotfiles_configurations () {
 
 	clear ; logo
 	
-	echo -e "${Bold}${LightRed}        [ Install machinepwn configurations ]${Reset} \n"
+	echo -e "${Bold}${LightRed}        [ Install dotfiles configurations ]${Reset} \n"
 
 	# Copying directories also add permissions | copiando directorios y agregando permisos
-	echo -e "${Blue}[*] ${White}Installing machinepwn configuration please wait ${Reset}" ; sleep 00.5
-        cd "${HOME}/cloning/Machinepwn/home/.config" || { echo "${LightRed}[!] ${White}Error the directory doesn't exit ${Reset}"; exit 1; }
+	echo -e "${Blue}[*] ${White}Installing dotfiles configuration please wait ${Reset}" ; sleep 00.5
+        cd "${HOME}/cloning/dotfiles/home/.config" || { echo "${LightRed}[!] ${White}Error the directory doesn't exit ${Reset}"; exit 1; }
         cp -r * "${HOME}/.config"
 
 	# Add permissions files | agregando permisos a los archivos
@@ -353,25 +353,25 @@ install_machinepwn_configurations () {
 	cd "${HOME}/.config/bspwm/polybar/homebar" ; chmod +x launch.sh
 	
 	# Copying zsh files and others | copiando archivos zsh y otras cosas
-	cd "${HOME}/cloning/Machinepwn/home/"
+	cd "${HOME}/cloning/dotfiles/home/"
 	cp .xinitrc .zprofile .zshrc .p10k.zsh "${HOME}"
 
 	# Check if the destination folders exist | check if the destination folders exist
 	if [[ -d "${HOME}/.local/share" ]]; then
 
 		# Installing the fonts | instalar las fuentes
-		cd "${HOME}/cloning/Machinepwn/home/"
+		cd "${HOME}/cloning/dotfiles/home/"
 		cp -r fonts "${HOME}/.local/share/fonts" ; fc-cache -fv &>/dev/null
 	else
 
 		# Installing the fonts | instalar las fuentes
-		mkdir -p "${HOME}/.local/share" ; cd "${HOME}/cloning/Machinepwn/home/"
+		mkdir -p "${HOME}/.local/share" ; cd "${HOME}/cloning/dotfiles/home/"
 		cp -r fonts "${HOME}/.local/share/fonts" ; fc-cache -fv &>/dev/null
 	fi
 
 	# Installing others thins | instalar otras cosas
 	folder="bin" ; mkdir -p "${HOME}/.local/${folder}"
-	cd "${HOME}/cloning/Machinepwn/misc" ; cp -r * "${HOME}/.local/${folder}"
+	cd "${HOME}/cloning/dotfiles/misc" ; cp -r * "${HOME}/.local/${folder}"
 	chmod +x "${HOME}/.local/${folder}"/*
 
 	# Installing misc configuration | Instalar configuraciones del carpeta misc
@@ -380,9 +380,9 @@ install_machinepwn_configurations () {
 	sudo mv "99-swappiness.conf" "/etc/sysctl.d/" ; sudo mv "30-touchpad.conf" "/etc/X11/xorg.conf.d/"
 
 	# Temporary text for modules updates | texto temporal para el modulo updates
-	sudo mkdir -p "/var/cache/machinepwn"
-	echo '0' | sudo tee /var/cache/machinepwn/updates.txt &>/dev/null
-	sudo chmod o+wr "/var/cache/machinepwn/updates.txt"
+	sudo mkdir -p "/var/cache/dotfiles"
+	echo '0' | sudo tee /var/cache/dotfiles/updates.txt &>/dev/null
+	sudo chmod o+wr "/var/cache/dotfiles/updates.txt"
 
 	# Installing zsh sudo plugin | instalar el plugin sudo zshrc
 	sudo mkdir -p "/usr/share/zsh-sudo" ; cd "/usr/share/zsh-sudo"
@@ -397,12 +397,12 @@ install_machinepwn_configurations () {
 		return 1
 	fi
 
-	echo -e "${Green}[i] ${White}Machinepwn configuration installed correctly ${Reset} \n" ; sleep 3
+	echo -e "${Green}[i] ${White}dotfiles configuration installed correctly ${Reset} \n" ; sleep 3
 }
 
 
 # Configure and enable some services | confugurando y habilitando algunos servicios
-machinepwn_configure_services () {
+dotfiles_configure_services () {
 
 	clear ; logo
 	
@@ -427,7 +427,7 @@ machinepwn_configure_services () {
 }
 
 # The final steps | ultimos pasos finales para la instalacion
-machinepwn_final_steps () {
+dotfiles_final_steps () {
 
 	clear ; logo
 	
@@ -456,11 +456,11 @@ machinepwn_final_steps () {
 initial_checks
 welcome
 
-install_dependencies
+dotfiles_install_dependencies
 install_bspwm_sxhkd_and_others
 backup_old_configurations
-machinepwn_change_default_shell
+dotfiles_change_default_shell
 
-install_machinepwn_configurations
-machinepwn_configure_services
-machinepwn_final_steps
+install_dotfiles_configurations
+dotfiles_configure_services
+dotfiles_final_steps
