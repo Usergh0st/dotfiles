@@ -1,47 +1,54 @@
-<img width="1431" height="607" alt="Machinepwn-preview" src="https://github.com/user-attachments/assets/61b31b42-42b9-4760-b26a-e89c8ac6e734" />
+<img width="1280" height="640" alt="banner dotfiles" src="https://github.com/user-attachments/assets/aeb28144-69ad-434b-9c95-be61d6c42f2e" />
 
-## **Machinepwn the environment for pentesting without losing elegance**
+<div align ="center">
 
-A configuration focused on minimalist and clean pentesting and ethical hacking the configuration is mainly focused on use in virtual machines, and essential things for minimal use of disk space and memory, without losing so much aesthetics.
+<br>
 
-### **What's new in the environment**
+[![Installation](https://img.shields.io/badge/Install-black?style=for-the-badge&logo=rolldown&logoColor=white)](#installation)
+[![Changelog](https://img.shields.io/badge/Changelog-silver?style=for-the-badge&logo=googletasks&logoColor=white)](https://github.com/Usergh0st/dotfiles/blob/master/CHANGELOG.md)
+[![Features](https://img.shields.io/badge/Features-black?style=for-the-badge&logo=rocket&logoColor=white)](#features)
+[![Rices](https://img.shields.io/badge/Rices-silver?style=for-the-badge&logo=ghostfolio&logoColor=white)](#rices)
+[![Keybindings](https://img.shields.io/badge/Keybindings-black?style=for-the-badge&logo=stackedit&logoColor=white)](#keybindings)
+[![Wiki](https://img.shields.io/badge/Wiki-silver?style=for-the-badge&logo=gitbook&logoColor=white)](https://github.com/Usergh0st/dotfiles/wiki)
 
-If you want to see the latest changes and updates for this environment, you can visit the following changelog. There you will find out about all the changes made.
+</div>
 
-- [CHANGELOG.md](https://github.com/Usergh0st/Machinepwn/blob/master/CHANGELOG.md)
+## **Welcome everyone to my personal configuration dotfiles**
 
-### **Environment overview**
+<p>Hello everyone this is a personal files configuration of BSPWM and the future will be have a configuration of hyprland, this configuration also is focused on pentesting and ethical hacking.
+This configuration is also intended for use in virtual machines.</p>
 
-Hello dear user here is a preview of how the **Machinepwn** environment will look after installation.
+### **Dotfiles overview**
 
-### **Keyboard shortcuts**
+<p>Here's a preview of how my dotfiles will look after you use the script for install. Make sure you choose the correct script for install.</p>
 
-Under construction.
+### **Keybindings**
+
+Still under construction
 
 ### **Installation**
 
-To install this environment, run the following commands below and read the warnings.
+<p>To install this dotfiles is very easy, only need to read well. To install run the following commands in your favorite terminal.</p>
 
 #### **On Kali Linux\Debian based**
 
+<p>This installer only works with debian-based distributions such as parrot, kali or debian.</p>
+
 ```bash
 # Download the installer in your home directory.
-curl -LO https://usergh0st.github.io/Machinepwn/KaliInstaller.sh
+curl -LO https://usergh0st.github.io/dotfiles/KaliInstaller.sh
 
 # Give it execution permissions and run the installer.
 chmod +x KaliInstaller.sh ; ./KaliInstaller.sh
 ```
-
-> Warning this installer only works with debian-based distributions such as parrot/kali/debian.
-
 #### **On Arch Linux\Manjaro**
+
+<p>This installer only works arch-based distributions such as manjaro, arch, blackarch.</p>
 
 ```bash
 # Download the installer in your home directory.
-curl -LO https://usergh0st.github.io/Machinepwn/ArchInstaller.sh
+curl -LO https://usergh0st.github.io/dotfiles/ArchInstaller.sh
 
 # Give it execution permissions and run the installer.
 chmod +x ArchInstaller.sh ; ./ArchInstaller.sh
 ```
-
-> Warning this installer only works with arch-linux distributions such as arch/manjaro the arch Linux installer has not yet been launched, but it will be created in the future.
