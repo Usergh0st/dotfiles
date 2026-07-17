@@ -26,7 +26,7 @@ Yellow="\e[1;33m"
 White="\e[107m"
 
 # Fech update file
-update_file="/var/cache/machinepwn/updates.txt"
+update_file="/var/cache/dotfiles/updates.txt"
 
 # Check updates function
 check_updates () {
