@@ -66,8 +66,8 @@ super + {Left,Right}
 	bspc desktop -f {prev,next}
 
 # Move applications or things to a specific window.
-super + {_,alt + }{1-6,0}
-	bspc {desktop -f,node -d} {1-6,10}
+super + {_,alt + }{1-9,0}
+	bspc {desktop -f,node -d} {1-9,10}
 
 # Drag any app or thing to any workspace.
 super + alt + {n,m}
