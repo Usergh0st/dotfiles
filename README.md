@@ -4,7 +4,7 @@
 
 <p>Welcome to my dotfiles, I'm **Usergh0st** from Dominican Republic 🇩🇴</p>
 
-<p>This is a personal files configuration of **BSPWM** and the future will be have a configuration of **hyprland**, this configuration also is focused on pentesting and ethical hacking.
+<p>This is a personal files configuration of BSPWM and the future will be have a configuration of hyprland, this configuration also is focused on pentesting and ethical hacking.
 This configuration is also intended for use in virtual machines.</p>
 
 ## **🖼️ Dotfiles Overview**
