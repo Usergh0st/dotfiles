@@ -1,0 +1,100 @@
+# ==================================================== #
+#  ▄▄▄  ▄▄     ▄▄▄   ▄▄▄▄ ▄▄▄▄  ▄▄ ▄▄▄▄▄▄ ▄▄▄▄▄▄ ▄▄ ▄▄ #
+# ██▀██ ██    ██▀██ ██▀▀▀ ██▄█▄ ██   ██     ██   ▀███▀ #
+# ██▀██ ██▄▄▄ ██▀██ ▀████ ██ ██ ██   ██     ██     █   #
+#                            ___ __                    #
+#         .----.-----.-----.'  _|__|.-----.            #
+#         |  __|  _  |     |   _|  ||  _  |            #
+#         |____|_____|__|__|__| |__||___  |            #
+#                                   |_____|            #
+#                                                      #
+#     ░█░█░█░█░█▀█░█▀▄░░░░░░░░░█▀▄░█▀▀░█▀█░█░█         #
+#     ░█▀█░░█░░█▀▀░█▀▄░░░▄█▄░░░█▀▄░▀▀█░█▀▀░█▄█         #
+#     ░▀░▀░░▀░░▀░░░▀░▀░░░░▀░░░░▀▀░░▀▀▀░▀░░░▀░▀         #
+#                                                      #
+# Usergh0st - https://github.com/Usergh0st/dotfiles    #
+# Description - alacritty configuration of my dotfiles #
+# Wiki - https://alacritty.org/config-alacritty.html   #
+# Version - 0.17.0                                     #
+# WM - bspwm                                           #
+# Date = 08.08.2026 01:18 PM                           #
+# ==================================================== #
+
+[general]
+
+live_config_reload = true
+
+import = ["~/.config/alacritty/colorsheme.toml", 
+	 "~/.config/alacritty/fonts.toml"]
+
+ipc_socket = true
+
+working_directory = "${HOME}"
+
+[env]
+
+WINIT_X11_SCALE_FACTOR = "1.0"
+TERM = "alacritty"
+
+[window]
+
+dynamic_padding = true
+padding = { x = 5, y = 5 }
+
+decorations = "Full"
+
+opacity = 0.8
+
+blur = true
+
+startup_mode = "Windowed"
+
+dynamic_title = true
+title = "Alacritty"
+
+resize_increments = true
+
+level = "Normal"
+
+[scrolling]
+
+history = 1000
+multiplier = 3
+
+[bell]
+
+animation = "Linear"
+
+duration = 110
+
+color = "#987a86"
+
+command = { program = "paplay", args = [ "/usr/share/sounds/freedesktop/stereo/dialog-error.oga",] }
+
+[selection]
+
+save_to_clipboard = true
+
+[cursor.style]
+
+shape = "Beam"
+
+blinking = "On"
+
+[cursor]
+
+blink_interval = 550
+
+blink_timeout = 10
+
+unfocused_hollow = false
+
+thickness = 0.15
+
+[terminal]
+
+shell = { program = "/bin/zsh", args = ["-l"] }
+
+[mouse]
+
+hide_when_typing = true

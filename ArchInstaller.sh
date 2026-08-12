@@ -49,15 +49,21 @@ blackarch="https://blackarch.org/strap.sh"
 url_repo="https://github.com/Usergh0st/dotfiles.git"
 zsh_sudo="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh"
 
-# List of packages to install | lista de paquetes a instalar
-pkgs_xorg=(xorg-xrandr xorg-server xorg-xinit xorg-xsetroot xorg-xinput)
+# List of packages to install for bspwm | Lista de paquetes a instalar para bspwm
+dpkg_xorg=(xorg-xrandr xorg-server xorg-xinit xorg-xsetroot xorg-xinput)
 
-pkgs_bspw=(rofi feh polybar neovim git fastfetch net-tools \
+dpkg_bspw=(rofi feh polybar neovim git fastfetch net-tools \
 	eza bat python-pywal less fzf thunar firefox rustup xclip \
 	papirus-icon-theme)
 
-pkgs_anys=(base-devel brightnessctl xdotool xsettingsd zsh zsh-autosuggestions \
+dpkg_anys=(base-devel brightnessctl xdotool xsettingsd zsh zsh-autosuggestions \
 zsh-syntax-highlighting curl)
+
+# List of packages to install for hyprland | Lista de paquetes a instalar para hyprland
+dpkg_wayland=()
+dpkg_hyprland=() 
+dpkg_others=(base-devel brightnessctl noto-fonts-emoji zsh zsh-autosuggestions \
+	zsh-syntax-highlighting curl) 
 
 # Logo function | funcion del logo
 logo () {
@@ -192,7 +198,7 @@ install_dependencies () {
 
 	sudo pacman -Syu --noconfirm
 	echo ""
-	sudo pacman -S --needed "${pkgs_xorg[@]}" "${pkgs_bspw[@]}" "${pkgs_anys[@]}" --noconfirm
+	sudo pacman -S --needed "${dpkg_xorg[@]}" "${dpkg_bspw[@]}" "${dpkg_anys[@]}" --noconfirm
 
 	echo ""
 	echo -e "${Green}[i] ${White}Once done the system was updated and the necessary dependencies were installed ${Reset} \n" ; sleep 3

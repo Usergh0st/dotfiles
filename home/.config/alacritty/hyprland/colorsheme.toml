@@ -1,0 +1,51 @@
+# ========================================================= #
+#  ▄▄▄  ▄▄     ▄▄▄   ▄▄▄▄ ▄▄▄▄  ▄▄ ▄▄▄▄▄▄ ▄▄▄▄▄▄ ▄▄ ▄▄      #
+# ██▀██ ██    ██▀██ ██▀▀▀ ██▄█▄ ██   ██     ██   ▀███▀      #
+# ██▀██ ██▄▄▄ ██▀██ ▀████ ██ ██ ██   ██     ██     █        #
+#                       __                                  # 
+#          .----.-----.|  |.-----.----.-----.               #
+#          |  __|  _  ||  ||  _  |   _|__ --|               #
+#          |____|_____||__||_____|__| |_____|               #
+#                                                           #
+#     ░█░█░█░█░█▀█░█▀▄░░░░░░░░░█▀▄░█▀▀░█▀█░█░█░█▄█          #
+#     ░█▀█░░█░░█▀▀░█▀▄░░░▄█▄░░░█▀▄░▀▀█░█▀▀░█▄█░█░█          #
+#     ░▀░▀░░▀░░▀░░░▀░▀░░░░▀░░░░▀▀░░▀▀▀░▀░░░▀░▀░▀░▀          #
+#                                                           #
+# Usergh0st - https://github.com/Usergh0st/dotfiles         #
+# Description - alacritty config colorshemes                #
+# Wiki - https://alacritty.org/config-alacritty.html#colors #
+# Version - 0.17.0                                          #
+# Date = 08.08.2026 6:14 PM                                 #
+# ========================================================= #
+
+[colors.primary]
+foreground = "#dec9d2"
+background = "#0D0B0C"
+
+[colors.cursor]
+text = "#e6b7cc"
+cursor = "#45373d"
+
+[colors.vi_mode_cursor]
+text = "#e6b7cc"
+cursor = "#45373d"
+
+[colors.normal]
+black = "#0D0B0C"
+red = "#725B65"
+green = "#7B636D"
+yellow = "#876C78"
+blue = "#977886"
+magenta = "#A07F8D"
+cyan = "#AE8B9B"
+white = "#dec9d2"
+
+[colors.bright]
+black = "#fdd0e8"
+red = "#4c3f43"
+green = "#ad8a99"
+yellow = "#775f68"
+blue = "#fed6ee"
+magenta = "#a58492"
+cyan = "#57474c"
+white = "#bc96a6"

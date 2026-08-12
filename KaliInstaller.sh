@@ -53,15 +53,15 @@ powerlevel10k="https://github.com/romkatv/powerlevel10k.git"
 fzftabgit="https://github.com/Aloxaf/fzf-tab.git"
 zsh_sudo="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh"
 
-# List of packages to install | lista de paquetes a instalar
-libs=(libxcb-xkb-dev libxkbcommon-dev librsvg2-common build-essential libxcb1-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-keysyms1-dev \
+# List of packages to install for bspwm | lista de paquetes para instalar en bspwm
+dpkg_libs=(libxcb-xkb-dev libxkbcommon-dev librsvg2-common build-essential libxcb1-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-keysyms1-dev \
       libxcb-xinerama0-dev libxcb-shape0-dev libxcb-cursor-dev pkg-config libxcb-icccm4-dev libconfig-dev libdbus-1-dev libegl-dev libev-dev libepoxy-dev \
       libpcre2-dev libpixman-1-dev libx11-xcb-dev libxcb1-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev \
       libxcb-randr0-dev libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev libxcb-xfixes0-dev meson ninja-build uthash-dev)
 
-xorg=(xserver-xorg-core xserver-xorg-video-fbdev xserver-xorg-input-all x11-xserver-utils xinit xinput)
+dpkg_xorg=(xserver-xorg-core xserver-xorg-video-fbdev xserver-xorg-input-all x11-xserver-utils xinit xinput)
 
-pkgs=(polybar rofi alacritty zsh git wget curl net-tools xdotool pulseaudio-utils pulseaudio pavucontrol fzf psmisc \
+dpkg_pkgs=(polybar rofi alacritty zsh git wget curl net-tools xdotool pulseaudio-utils pulseaudio pavucontrol fzf psmisc \
 fastfetch papirus-icon-theme adwaita-icon-theme bat firefox-esr openvpn bleachbit mousepad feh eza xclip)
 
 # Logo function | funcion del logo
@@ -196,7 +196,7 @@ dotfiles_install_dependencies () {
 
 	echo -e "${Blue}[*] ${White}Updating and installing required packages and dependencies ${Reset} \n" ; sleep 1
 
-	sudo apt update ; sudo apt full-upgrade -y ; sudo apt install -y "${libs[@]}" "${xorg[@]}" "${pkgs[@]}" --no-install-recommends
+	sudo apt update ; sudo apt full-upgrade -y ; sudo apt install -y "${dpkg_libs[@]}" "${dpkg_xorg[@]}" "${dpkg_pkgs[@]}" --no-install-recommends
 
 	echo ""
 	echo -e "${Green}[i] ${White}Once done the system was updated and the necessary dependencies were installed ${Reset} \n" ; sleep 3
@@ -343,8 +343,12 @@ install_dotfiles_configurations () {
 
 	# Copying directories also add permissions | copiando directorios y agregando permisos
 	echo -e "${Blue}[*] ${White}Installing dotfiles configuration please wait ${Reset}" ; sleep 00.5
-        cd "${HOME}/cloning/dotfiles/home/.config" || { echo "${LightRed}[!] ${White}Error the directory doesn't exit ${Reset}"; exit 1; }
+        cd "${HOME}/cloning/dotfiles/home/.config" || { echo "${LightRed}[!] ${White}Error the directory doesn't exist ${Reset}"; exit 1; }
         cp -r * "${HOME}/.config"
+
+	# Adjusting the alacritty terminal according to the window manager | ajustando la terminal alacritty segun el gestor de ventanas
+	rm -rf "${HOME}/.config/alacritty/hyprland" ; cd "${HOME}/.config/alacritty/bspwm" || { echo "${LightRed}[!] ${White}Error the directory doesn't exist ${Reset}"; exit 1; }
+	mv * "${HOME}/.config/alacritty"
 
 	# Add permissions files | agregando permisos a los archivos
 	cd "${HOME}/.config/bspwm/" ; chmod +x bspwmrc ; chmod +x sxhkdrc
