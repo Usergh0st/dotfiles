@@ -35,13 +35,7 @@ user_pref("userChrome.tab.bottom_rounded_corner.chrome_legacy", false);
 user_pref("userChrome.tab.bottom_rounded_corner.edge",          true);
 
 /* Performance Boost */
-user_pref("gfx.webrender.all", true);
-user_pref("layers.acceleration.force-enabled", true);
-user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.memory.enable", true);
-user_pref("network.http.pipelining", true);
-user_pref("network.http.proxy.pipelining", true);
-user_pref("network.http.pipelining.maxrequests", 8);
+user_pref("browser.cache.disk.enable", true);
 user_pref("network.dns.disablePrefetch", false);
 user_pref("network.prefetch-next", true);
 
@@ -52,7 +46,4 @@ user_pref("browser.uitour.enabled", false);
 user_pref("privacy.globalprivacycontrol.enabled", true);
 
 /* Performance Boost More Options */
-user_pref("browser.cache.disk.enable", false);
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
-user_pref("media.memory_cache_max_size", 65536);
-user_pref("browser.sessionstore.interval", 60000);
