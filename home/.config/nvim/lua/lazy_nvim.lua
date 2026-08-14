@@ -7,7 +7,7 @@
 -- Date - 12.08.2026 1:39 PM
 -- Description - Plugin manager for lazy people like me.
 
--- BOOTSTRAP
+-- Bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
