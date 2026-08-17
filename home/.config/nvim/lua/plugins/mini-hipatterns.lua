@@ -1,6 +1,6 @@
---            ░█▄█░▀█▀░█▀█░▀█▀
---            ░█░█░░█░░█░█░░█░
---            ░▀░▀░▀▀▀░▀░▀░▀▀▀
+-- ░█▄█░▀█▀░█▀█░▀█▀
+-- ░█░█░░█░░█░█░░█░
+-- ░▀░▀░▀▀▀░▀░▀░▀▀▀
 
 -- ░█░█░▀█▀░█▀█░█▀█░▀█▀░▀█▀░█▀▀░█▀▄░█▀█░█▀▀
 -- ░█▀█░░█░░█▀▀░█▀█░░█░░░█░░█▀▀░█▀▄░█░█░▀▀█
@@ -8,9 +8,8 @@
 
 -- Usergh0st - https://github.com/Usergh0st/dotfiles
 -- Version - NVIM 0.12.4
--- Date - 12.08.2026 1:39 PM
+-- Date - 17.08.2026 7:27 A.M.
 -- Description - It provides color and syntax highlighting. 
--- Not for everything but for some things.
 
 return {
     "nvim-mini/mini.hipatterns",

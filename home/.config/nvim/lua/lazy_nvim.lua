@@ -4,10 +4,11 @@
 
 -- Usergh0st - https://github.com/Usergh0st/dotfiles
 -- Version - NVIM 0.12.4
--- Date - 12.08.2026 1:39 PM
+-- Lazy - 11.17.5
+-- Date - 17.08.2026 7:27 A.M.
 -- Description - Plugin manager for lazy people like me.
 
--- Bootstrap
+-- Bootstrap lazy-nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -41,7 +42,7 @@ require("lazy").setup({
     },
     checker = {
             enabled = true,
-            notify = false,
+            notify = true,
             frequency = 3600,
     },
 })

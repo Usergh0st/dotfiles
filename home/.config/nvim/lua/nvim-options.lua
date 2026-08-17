@@ -4,11 +4,11 @@
 
 -- Usergh0st - https://github.com/Usergh0st/dotfiles
 -- Version - NVIM 0.12.4
--- Date - 12.08.2026 1:39 PM
+-- Date - 17.08.2026 7:27 A.M.
 -- Description - Here's the options that can use nvim.
 
 -- Line and nimbers
-vim.opt.number = false
+vim.opt.number = true
 vim.opt.relativenumber = false
 
 -- Tabs and indentation
@@ -36,7 +36,7 @@ vim.g.have_nerd_font = true
 
 -- Text display
 vim.opt.wrap = true
-vim.opt.scrolloff = 3
+vim.opt.scrolloff = 5
 
 -- Improves performance
 vim.opt.ignorecase = true
