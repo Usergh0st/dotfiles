@@ -8,7 +8,7 @@
 
 -- Usergh0st - https://github.com/Usergh0st/dotfiles
 -- Version - NVIM 0.12.4
--- Date - 17.08.2026 8:20 A.M.
+-- Date - 19.08.2026 07:50 P.M.
 -- Description - Auto-completion of braces, parentheses, among other things.
 
 return {

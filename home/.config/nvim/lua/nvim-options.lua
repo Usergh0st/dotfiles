@@ -4,7 +4,7 @@
 
 -- Usergh0st - https://github.com/Usergh0st/dotfiles
 -- Version - NVIM 0.12.4
--- Date - 17.08.2026 7:27 A.M.
+-- Date - 19.08.2026 07:50 P.M.
 -- Description - Here's the options that can use nvim.
 
 -- Line and nimbers
