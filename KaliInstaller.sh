@@ -62,7 +62,7 @@ dpkg_libs=(libxcb-xkb-dev libxkbcommon-dev librsvg2-common build-essential libxc
 dpkg_xorg=(xserver-xorg-core xserver-xorg-video-fbdev xserver-xorg-input-all x11-xserver-utils xinit xinput)
 
 dpkg_pkgs=(polybar rofi alacritty zsh git wget curl net-tools xdotool pulseaudio-utils pulseaudio pavucontrol fzf psmisc \
-fastfetch papirus-icon-theme adwaita-icon-theme bat firefox-esr openvpn bleachbit mousepad feh eza xclip)
+fastfetch papirus-icon-theme adwaita-icon-theme bat firefox-esr openvpn bleachbit mousepad feh eza xclip zoxide)
 
 # Logo function | funcion del logo
 logo () {
@@ -349,6 +349,7 @@ install_dotfiles_configurations () {
 	# Adjusting the alacritty terminal according to the window manager | ajustando la terminal alacritty segun el gestor de ventanas
 	rm -rf "${HOME}/.config/alacritty/hyprland" ; cd "${HOME}/.config/alacritty/bspwm" || { echo "${LightRed}[!] ${White}Error the directory doesn't exist ${Reset}"; exit 1; }
 	mv * "${HOME}/.config/alacritty"
+    rmdir "bspwm"
 
 	# Add permissions files | agregando permisos a los archivos
 	cd "${HOME}/.config/bspwm/" ; chmod +x bspwmrc ; chmod +x sxhkdrc
