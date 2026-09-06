@@ -1,27 +1,26 @@
 #!/usr/bin/env bash
-# ==================================================================== #
-#  __  __         __ __      _____   __                                #
-# |  |/  |.---.-.|  |__|    |     |_|__|.-----.--.--.--.--.            #
-# |     < |  _  ||  |  |    |       |  ||     |  |  |_   _|            #
-# |__|\__||___._||__|__|    |_______|__||__|__|_____|__.__|            #
-#  _______               __          __ __                             #
-# |_     _|.-----.-----.|  |_.---.-.|  |  |.-----.----.                #
-#  _|   |_ |     |__ --||   _|  _  ||  |  ||  -__|   _|                #
-# |_______||__|__|_____||____|___._||__|__||_____|__|                  #
-#                                                                      #
-# Author: Enríque González Aka (Usergh0st)                             #
-# Repository: https://github.com/Usergh0st/dotfiles                    #
-# Mail: tsohg.uncork054@passinbox.com                                  #
-# Date: 12.07.2026 09:38 AM                                            #
-#                                                                      #
-# Description: Kali Linux installer script for my dotfiles the script  #
-# only works in distributions based on debian and this script required #
-# root user passaworld.                                                #
-#                                                                      #
-# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>          #
-# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>          #
-# Licensed under GPL-3.0 license                                       #
-# ==================================================================== #
+# =========================================================== #
+# ░█░█░█▀█░█░░░▀█▀░░░█░░░▀█▀░█▀█░█░█░█░█                      #
+# ░█▀▄░█▀█░█░░░░█░░░░█░░░░█░░█░█░█░█░▄▀▄                      #
+# ░▀░▀░▀░▀░▀▀▀░▀▀▀░░░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀                      # 
+#                                                             #
+# ░▀█▀░█▀█░█▀▀░▀█▀░█▀█░█░░░█░░░█▀▀░█▀▄                        #
+# ░░█░░█░█░▀▀█░░█░░█▀█░█░░░█░░░█▀▀░█▀▄                        #
+# ░▀▀▀░▀░▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀░▀                        #
+#                                                             #
+# Author: Enríque González Aka (Usergh0st)                    #
+# Repository: https://github.com/Usergh0st/dotfiles           #
+# Mail: tsohg.uncork054@passinbox.com                         #
+# Date: 26.08.2026 07:52 A.M.                                 #
+#                                                             #
+# Description: Kali Linux installer script for my dotfiles    #
+# the script only works in distributions based on debian      #
+# and this script required root user passaworld.              #
+#                                                             #
+# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me> #
+# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me> #
+# Licensed under GPL-3.0 license                              #
+# =========================================================== #
 
 # Display and debug output errors
 set -uo pipefail
@@ -383,6 +382,8 @@ install_dotfiles_configurations () {
 	cd "${HOME}/.local/${folder}/confd"
 	sudo mv "99local" "/etc/apt/apt.conf.d" ; sudo mv "local.conf" "/etc/fonts/"
 	sudo mv "99-swappiness.conf" "/etc/sysctl.d/" ; sudo mv "30-touchpad.conf" "/etc/X11/xorg.conf.d/"
+    rmdir "${HOME}/.local/${folder}/confd"
+    rm -rf "${HOME}/.local/${folder}/firefox"
 
 	# Temporary text for modules updates | texto temporal para el modulo updates
 	sudo mkdir -p "/var/cache/dotfiles"

@@ -1,5 +1,5 @@
-# Start the server xorg if it have bspwm.
-# Start the server wayland if it have hyprland.
+# Start the server (xorg) if the system have bspwm.
+# Start the server (wayland) if the system have hyprland.
 
 if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]]; then
 	if command -v bspwm &>/dev/null; then

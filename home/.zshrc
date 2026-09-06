@@ -1,29 +1,29 @@
-# ========================================================== #
-# ░░░░▀▀█░█▀▀░█░█░█▀▄░█▀▀                                    #
-# ░░░░▄▀░░▀▀█░█▀█░█▀▄░█░░                                    #
-# ░▀░░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀                                    #
-#                                                            #
-# ░█▀█░█▀▄░█▀▀░█░█░░░░░░░░░█▀▄░█▀▀░█▀▄░▀█▀░█▀█░█▀█           #
-# ░█▀█░█▀▄░█░░░█▀█░░░▄█▄░░░█░█░█▀▀░█▀▄░░█░░█▀█░█░█           #
-# ░▀░▀░▀░▀░▀▀▀░▀░▀░░░░▀░░░░▀▀░░▀▀▀░▀▀░░▀▀▀░▀░▀░▀░▀           #
-#                                                            #
-# Author: Enríque González Aka (Usergh0st)                   #
-# Repository: https://github.com/Usergh0st/dotfiles          #
-# Mail: tsohg.uncork054@passinbox.com                        #
-# Date: 24.08.2026 09:10 P.M.                                #
-# zsh: 5.9.2                                                 #
-#                                                            #
-# Description: Personal configuration of .zshrc file.        #
-# Edit this file to adjust to your liking dear user.         #
-#                                                            #
-# Dependencies:                                              #
-#             → zsh, eza, bat, zoxide, fzf, fzf-tab-git      #
-#             → zsh-autosuggestions, zsh-syntax-highlighting #
-#             → zsh-sudo.plugin, powerlevel10k.zsh-theme     #
-#             → scrub                                        #
-#                                                            #
-# Tested: Kali/Arch                                          #
-# ========================================================== #
+# ========================================================= #
+# ░░░░▀▀█░█▀▀░█░█░█▀▄░█▀▀                                   #
+# ░░░░▄▀░░▀▀█░█▀█░█▀▄░█░░                                   #
+# ░▀░░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀                                   #
+#                                                           #
+# ░█▀█░█▀▄░█▀▀░█░█░░░░░░░░░█▀▄░█▀▀░█▀▄░▀█▀░█▀█░█▀█          #
+# ░█▀█░█▀▄░█░░░█▀█░░░▄█▄░░░█░█░█▀▀░█▀▄░░█░░█▀█░█░█          #
+# ░▀░▀░▀░▀░▀▀▀░▀░▀░░░░▀░░░░▀▀░░▀▀▀░▀▀░░▀▀▀░▀░▀░▀░▀          #
+#                                                           #
+# Author: Enríque González Aka (Usergh0st)                  #
+# Repository: https://github.com/Usergh0st/dotfiles         #
+# Mail: tsohg.uncork054@passinbox.com                       #
+# Date: 27.08.2026 07:08 A.M.                               #
+# zsh: 5.9.2                                                #
+#                                                           #
+# Description: Personal configuration of .zshrc file.       #
+# Edit this file to adjust to your liking dear user.        #
+#                                                           #
+# Dependencies:                                             #
+#            → zsh, eza, bat, zoxide, fzf, fzf-tab-git      #
+#            → zsh-autosuggestions, zsh-syntax-highlighting #
+#            → zsh-sudo.plugin, powerlevel10k.zsh-theme     #
+#            → scrub, xclip                                 #
+#                                                           #
+# Tested: Kali/Arch                                         #
+# ========================================================= #
 
 # If not running interactively, don't do anything.
 [[ $- != *i* ]] && return

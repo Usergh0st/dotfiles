@@ -1,27 +1,26 @@
 #!/usr/bin/env bash
-# ====================================================================== #
-#  _______             __         _____   __                             #
-# |   _   |.----.----.|  |--.    |     |_|__|.-----.--.--.--.--.         #
-# |       ||   _|  __||     |    |       |  ||     |  |  |_   _|         #
-# |___|___||__| |____||__|__|    |_______|__||__|__|_____|__.__|         #
-#  _______               __          __ __                               #
-# |_     _|.-----.-----.|  |_.---.-.|  |  |.-----.----.                  #
-#  _|   |_ |     |__ --||   _|  _  ||  |  ||  -__|   _|                  #
-# |_______||__|__|_____||____|___._||__|__||_____|__|                    #
-#                                                                        #
-# Author: Enríque González Aka (Usergh0st)                               #
-# Repository: https://github.com/Usergh0st/dotfiles                      #
-# Mail: tsohg.uncork054@passinbox.com                                    #
-# Date: 12.07.2026 09:14 AM                                              #
-#                                                                        #
-# Description: Arch linux installer script for my dotfiles the installer #
-# only works in arch linux, no others, distros and this script required  #
-# root user passworld.                                                   #
-#                                                                        #
-# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me>            #
-# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me>            #
-# Licensed under GPL-3.0 license                                         #
-# ====================================================================== #
+# =========================================================== #
+# ░█▀█░█▀▄░█▀▀░█░█░░░█░░░▀█▀░█▀█░█░█░█░█                      # 
+# ░█▀█░█▀▄░█░░░█▀█░░░█░░░░█░░█░█░█░█░▄▀▄                      #
+# ░▀░▀░▀░▀░▀▀▀░▀░▀░░░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀                      #
+#                                                             #
+# ░▀█▀░█▀█░█▀▀░▀█▀░█▀█░█░░░█░░░█▀▀░█▀▄                        #
+# ░░█░░█░█░▀▀█░░█░░█▀█░█░░░█░░░█▀▀░█▀▄                        #
+# ░▀▀▀░▀░▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀░▀                        #
+#                                                             #
+# Author: Enríque González Aka (Usergh0st)                    #
+# Repository: https://github.com/Usergh0st/dotfiles           #
+# Mail: tsohg.uncork054@passinbox.com                         #
+# Date: 26.08.2026 07:48 A.M.                                 #
+#                                                             #
+# Description: Arch linux installer script for my dotfiles    #
+# the installer only works in arch linux, no others, distros  #
+# and this script required root user passworld.               #
+#                                                             #
+# Copyright (C) 2025-2026 Usergh0st <usergh0stmail@proton.me> #
+# Copyright (C) 2026-2027 Usergh0st <usergh0stmail@proton.me> #
+# Licensed under GPL-3.0 license                              #
+# =========================================================== #
 
 # Display and debug output errors
 set -uo pipefail

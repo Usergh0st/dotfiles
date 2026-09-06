@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-#  _____                           __
-# |     |_.---.-.--.--.-----.----.|  |--.
-# |       |  _  |  |  |     |  __||     |
-# |_______|___._|_____|__|__|____||__|__|
+
+# ░█░░░█▀█░█░█░█▀█░█▀▀░█░█
+# ░█░░░█▀█░█░█░█░█░█░░░█▀█
+# ░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░▀
 
 # File to propouse launch the polybar.
 # Terminate already running bar instances.
@@ -15,4 +15,4 @@
 for mon in $(polybar --list-monitors | cut -d":" -f1); do
 	MONITOR=$mon polybar -q barpwn -c "${HOME}"/.config/bspwm/polybar/barpwn/config.ini &
 done
-echo "The polybar barpwn has launched..."
+echo "The polybar barpwn has been launched..."
