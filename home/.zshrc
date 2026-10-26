@@ -136,6 +136,7 @@ alias arch-update="paru -Syu --nocombinedupgrade"
 alias kali-update="sudo apt update ; clear ; apt list --upgradable ; sudo apt full-upgrade"
 alias ping="ping -c 1 8.8.8.8 ; ping -c 1 google.es"
 alias btw="fastfetch"
+alias learn="tldr"
 
 # Quick paru commands in arch linux one letter.
 alias u="paru -Syu --nocombinedupgrade"

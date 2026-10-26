@@ -16,7 +16,7 @@
 # Wiki - https://alacritty.org/config-alacritty.html   #
 # Version - 0.17.0                                     #
 # WM - bspwm                                           #
-# Date = 26.08.2026 08:01 A.M.                         #
+# Date = 26.10.2026 10:12 A.M.                         #
 # ==================================================== #
 
 [general]
@@ -38,9 +38,9 @@ TERM = "alacritty"
 [window]
 
 dynamic_padding = true
-padding = { x = 5, y = 5 }
+padding = { x = 10, y = 10 }
 
-decorations = "Full"
+decorations = "None"
 
 opacity = 0.9
 

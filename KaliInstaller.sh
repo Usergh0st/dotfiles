@@ -11,7 +11,7 @@
 # Author: Enríque González Aka (Usergh0st)                    #
 # Repository: https://github.com/Usergh0st/dotfiles           #
 # Mail: tsohg.uncork054@passinbox.com                         #
-# Date: 26.08.2026 07:52 A.M.                                 #
+# Date: 26.10.2026 11:00 A.M.                                 #
 #                                                             #
 # Description: Kali Linux installer script for my dotfiles    #
 # the script only works in distributions based on debian      #
@@ -61,7 +61,7 @@ dpkg_libs=(libxcb-xkb-dev libxkbcommon-dev librsvg2-common build-essential libxc
 dpkg_xorg=(xserver-xorg-core xserver-xorg-video-fbdev xserver-xorg-input-all x11-xserver-utils xinit xinput)
 
 dpkg_pkgs=(polybar rofi alacritty zsh git wget curl net-tools xdotool pulseaudio-utils pulseaudio pavucontrol fzf psmisc \
-fastfetch papirus-icon-theme adwaita-icon-theme bat firefox-esr openvpn bleachbit mousepad feh eza xclip zoxide)
+fastfetch papirus-icon-theme adwaita-icon-theme bat firefox-esr openvpn bleachbit mousepad feh eza xclip zoxide polkit-gnome)
 
 # Logo function | funcion del logo
 logo () {

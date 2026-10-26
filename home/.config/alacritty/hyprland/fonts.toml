@@ -16,7 +16,7 @@
 # Wiki - https://alacritty.org/config-alacritty.html#font #
 # Version - 0.17.0                                        #
 # WM - hyprland                                           #
-# Date = 08.08.2026 5:27 PM                               #
+# Date = 26.10.2026 10:16 A.M.                            #
 # ======================================================= #
 
 [font]
@@ -25,6 +25,8 @@ size = 12
 
 builtin_box_drawing = true
 
+offset = { x = 0, y = 1 }
+
 normal = { family = "Cascadia Code", style = "SemiBold" }
 bold = { family = "Cascadia Mono", style = "SemiBold" }
-italic = { family = "Bai Jamjuree", style = "SemiBold" }
+italic = { family = "Monocraft", style = "SemiBold" }
