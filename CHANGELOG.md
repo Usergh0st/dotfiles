@@ -1,3 +1,29 @@
+## Add AI repository guidance and persistent project context.
+
+##### Friday 13 November 2026
+
+### New
+
+- Added [AGENTS.md](https://github.com/Usergh0st/dotfiles/blob/master/AGENTS.md) with repository conventions and AI-assisted development instructions.
+- Added [MEMORY.md](https://github.com/Usergh0st/dotfiles/blob/master/MEMORY.md) with persistent project context for AI models and maintainers.
+
+### Changes
+
+- Corrected spelling, capitalization, punctuation, and minor wording issues in the repository documentation.
+- Updated the repository tree to include the new documentation files, `.github`, and the hidden configuration files under `home/`.
+
+### Previews
+
+Not applicable for documentation-only changes.
+
+### To-Do
+
+- [x] Add AI repository instructions.
+- [x] Add persistent project memory.
+- [x] Refresh the repository tree.
+
+---
+
 ## Latest changes and summary of what has been done.
 
 ##### Wednesday 22 April 2026
