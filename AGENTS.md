@@ -2,6 +2,26 @@
 
 Hola, antes de empezar a trabajar con el repositorio personal del usuario `Usergh0st` es buena práctica leer este archivo antes de realizar cualquier acción o paso.
 
+## Índice
+
+Con este indice puedes navegar rapido hacia los temas sin perder tiempo. Si notas que falta algun tema o cuestion por mencionar en `AGENTS.md` propon actualizar el archivo con el tema faltante.
+
+- [¿Qué son los dotfiles?](#qué-son-los-dotfiles)
+- [Propósito general](#propósito-general)
+- [Commits](#commits)
+- [CHANGELOG.md](#changelogmd)
+- [Estructura del repositorio](#estructura-del-repositorio)
+  - [1. Árbol de `~/.config`](#1-árbol-de-config)
+  - [2. Árbol de la raíz `~/dotfiles`](#2-árbol-de-la-raíz-homdotfiles)
+- [Cómo usar este repositorio](#cómo-usar-este-repositorio)
+- [Requisitos y dependencias](#requisitos-y-dependencias)
+  - [Kali Linux / Debian](#kali-linux--debian)
+  - [Arch Linux / Manjaro](#arch-linux--manjaro)
+- [Recomendaciones generales](#recomendaciones-generales)
+- [Memoria persistente](#memoria-persistente)
+- [Guía del repositorio](#guía-del-repositorio)
+- [Enlaces y documentación web externa](#enlaces-y-documentación-web-externa)
+
 ## ¿Qué son los dotfiles?
 
 Un repositorio de **dotfiles** es una colección personal de archivos de configuración que suelen empezar con un punto (`.`). Ejemplos:
@@ -28,9 +48,13 @@ Archivos clave de documentación:
 
 Regla: si notas que el árbol está desactualizado o incompleto, resáltalo al usuario y propone actualizar el árbol con todos los archivos actuales.
 
+Nota: la lectura de `CHANGELOG.md` y `README.md` es opcional si no resulta necesaria; evita leer esos archivos a menos que tengas que trabajar con ellos.
+
 ## Commits
 
-Este repositorio utiliza **conventional commits** para mantener un historial claro y consistente.
+Este repositorio utiliza **conventional commits** para mantener un historial claro y consistente. La rama principal siempre sera **master** no hay otras ramas solo esta, repositorio remoto configurado en Github listo para hacer push.
+
+Nota: no hagas commit sin permiso del usuario.
 
 ### Formato
 
@@ -70,6 +94,8 @@ git log --oneline -20
 ## CHANGELOG.md
 
 Cuando documentes cambios en este repositorio, usa la **misma estructura que `CHANGELOG.md`** para que el historial sea consistente y fácil de leer.
+
+Nota: antes de editar `CHANGELOG.md`, propón los cambios que vas a realizar o añadir. Si el usuario los aprueba, aplícalos; de lo contrario, no hagas nada. Aplica la misma regla a `README.md`.
 
 Cada entrada debe incluir:
 
@@ -331,6 +357,33 @@ Los paquetes necesarios se instalan automáticamente mediante los scripts de la 
 - Antes de hacer cambios importantes, haz una copia de seguridad o crea una rama.
 - Si añades una nueva aplicación a `~/.config`, documenta brevemente su propósito aquí en el `AGENTS.md`.
 - Los nombres de archivo y rutas pueden contener caracteres especiales o espacios (por ejemplo, en las fuentes de MesloLGS); usa comillas al manipularlos desde la terminal.
+
+## Memoria persistente
+
+- Al empezar, es importante leer `MEMORY.md` para conocer el estado actual del proyecto y las decisiones tomadas.
+- Al terminar una tarea, actualiza esta memoria con el estado actual, las decisiones importantes **y sus motivos**, además de los errores a evitar.
+- Si algo se convierte en una regla permanente, propón moverlo a `AGENTS.md` en lugar de dejarlo en la memoria.
+- Nunca guardes datos sensibles, como secretos, tokens, claves de API o datos personales.
+- Mantenlo breve (máximo ~250 líneas): resume o elimina lo que ya no sirva o aporte.
+
+## Guía del repositorio
+
+> `https://github.com/gh0stzk/dotfiles.git` — repositorio muy útil como referencia.
+
+- En el repositorio del usuario `gh0stzk` se encuentran configuraciones personales de bspwm bastante increíbles. Usa este repositorio de referencia para proponer mejoras y correcciones, o simplemente como documentación.
+- Es útil para proponer funcionalidades que aún no se hayan implementado en estos dotfiles.
+- También es útil para tener una referencia clara.
+
+## Enlaces y documentación web externa
+
+Nota: no intentes investigar ni buscar estos enlaces por el momento, a menos que necesites consultar documentación o el usuario te pida información sobre algún concepto como **polybar** o **alacritty**.
+
+> `https://archlinux.org/` — A simple, lightweight distribution.
+> `https://github.com/polybar/polybar` — A fast and easy-to-use status bar.
+> `https://alacritty.org/config-alacritty.html` — A cross-platform, OpenGL terminal emulator.
+
+- Útil para documentar y saber exactamente cómo funciona un software específico.
+- Actualmente se tienen tres enlaces. A medida que vayas trabajando con el repositorio y detectes software que se esté usando, actualiza esta sección agregando más enlaces de documentación.
 
 ---
 
