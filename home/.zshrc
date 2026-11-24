@@ -135,7 +135,7 @@ alias clsram="sudo sync && sudo sysctl -w wm.drop_caches=3"
 alias cacheft="fc-cache -fv"
 alias arch-update="paru -Syu --nocombinedupgrade"
 alias kali-update="sudo apt update ; clear ; apt list --upgradable ; sudo apt full-upgrade"
-alias ping="ping -c 1 8.8.8.8 ; ping -c 1 google.es"
+alias netcheck="ping -c 1 8.8.8.8 ; ping -c 1 google.es"
 alias btw="fastfetch"
 alias learn="tldr"
 

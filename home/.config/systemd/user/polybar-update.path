@@ -2,7 +2,7 @@
 Description=Watch apt updates file
 
 [Path]
-PathModified=/var/cache/machinepwn/updates.txt
+PathModified=/var/cache/dotfiles/updates.txt
 
 [Install]
 WantedBy=default.target
