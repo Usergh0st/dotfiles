@@ -3,7 +3,7 @@
 # Author: Enríque González Aka (Usergh0st)            #
 # Repository: https://github.com/Usergh0st/dotfiles   #
 # Mail: tsohg.uncork054@passinbox.com                 #
-# Date: 11.07.2026 09:31 AM                           #
+# Date: 23.11.2026 10:17 P.M.                         #
 #                                                     #
 # Script Name: WallSelect.sh                          #
 # Description: Simple script that sets a wallpaper.   #
@@ -20,4 +20,4 @@ wallpapers=($(find "${wallpapers_directory}" -type f -name "*.png" -o -name "*.j
 random_wallpaper="${wallpapers[RANDOM % ${#wallpapers[@]}]}"
 
 # Set wallpaper.
-feh --bg-scale "${random_wallpaper}"
+feh --no-fehbg --bg-scale "${random_wallpaper}"

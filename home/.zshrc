@@ -10,7 +10,7 @@
 # Author: Enríque González Aka (Usergh0st)                  #
 # Repository: https://github.com/Usergh0st/dotfiles         #
 # Mail: tsohg.uncork054@passinbox.com                       #
-# Date: 27.08.2026 07:08 A.M.                               #
+# Date: 23.11.2026 10:15 P.M.                               #
 # zsh: 5.9.2                                                #
 #                                                           #
 # Description: Personal configuration of .zshrc file.       #
@@ -42,10 +42,11 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_BIN_HOME="${HOME}/.local/bin"
 
+export PARALLEL_HOME="${XDG_CACHE_HOME}/parallel"
 export SUDO_PROMPT="Requesting root access for the user %u 󰗋 ❱ "
 export FILEMANAGER='thunar'
-export VISUAL="${EDITOR}"
 export EDITOR="nvim"
+export VISUAL="${EDITOR}"
 export BROWSER="firefox"
 export TERMINAL="alacritty"
 export PAGER="less"
