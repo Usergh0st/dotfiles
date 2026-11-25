@@ -3,12 +3,12 @@
 -- ░▀▀▀░▀░░░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀
 
 -- Usergh0st - https://github.com/Usergh0st/dotfiles
--- Version - NVIM 0.12.4
--- Date - 19.08.2026 07:50 P.M.
+-- Version - NVIM 0.12.6
+-- Date - 25.11.2026 11:13 A.M.
 -- Description - Here's the options that can use nvim.
 
 -- Line and nimbers
-vim.opt.number = true
+vim.opt.number = false
 vim.opt.relativenumber = false
 
 -- Tabs and indentation
@@ -36,7 +36,11 @@ vim.g.have_nerd_font = true
 
 -- Text display
 vim.opt.wrap = true
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 8
+
+-- Leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Improves performance
 vim.opt.ignorecase = true

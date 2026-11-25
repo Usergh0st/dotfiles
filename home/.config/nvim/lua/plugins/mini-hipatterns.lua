@@ -7,8 +7,8 @@
 -- ░▀░▀░▀▀▀░▀░░░▀░▀░░▀░░░▀░░▀▀▀░▀░▀░▀░▀░▀▀▀
 
 -- Usergh0st - https://github.com/Usergh0st/dotfiles
--- Version - NVIM 0.12.4
--- Date - 19.08.2026 07:50 P.M.
+-- Version - NVIM 0.12.6
+-- Date - 25.11.2026 11:24 A.M.
 -- Description - It provides color and syntax highlighting. 
 
 return {

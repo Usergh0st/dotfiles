@@ -3,10 +3,10 @@
 -- ░▀▀▀░▀░▀░▀▀▀░░▀░
 
 -- Usergh0st - https://github.com/Usergh0st/dotfiles
--- Version - NVIM 0.12.4
+-- Version - NVIM 0.12.6
 -- Lazy - 11.17.5
--- Date - 19.08.2026 07:50 P.M.
--- Description - Plugin manager for lazy people like me.
+-- Date - 25.11.2026 11:13 A.M.
+-- Description - Plugin manager lazy for lazy people like me.
 
 -- Bootstrap lazy-nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -29,6 +29,7 @@ require("lazy").setup({
     spec = {
         { import = "plugins" }
     },
+
     performance = {
         rtp = {
             disabled_plugins = {
@@ -37,12 +38,14 @@ require("lazy").setup({
                 "tohtml",
                 "tutor",
                 "zipPlugin",
+                "netrw"
             },
         },
     },
+
     checker = {
             enabled = true,
-            notify = true,
+            notify = false,
             frequency = 3600,
     },
 })

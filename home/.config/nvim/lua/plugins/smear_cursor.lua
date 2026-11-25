@@ -3,14 +3,14 @@
 -- ░▀▀▀░▀░▀░▀▀▀░▀░▀░▀░▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀░▀
 
 -- Usergh0st - https://github.com/Usergh0st/dotfiles
--- Version - NVIM 0.12.4
--- Date - 19.08.2026 07:50 P.M.
+-- Version - NVIM 0.12.6
+-- Date - 25.11.2026 11:27 A.M.
 -- Description - Cool effects and animations with the cursor.
 
 return {
     "sphamba/smear-cursor.nvim",
     name = "smearcursor",
-    priority = 1000, 
+    priority = 1000,
 
     opts = {
         smear_between_buffers = true,
