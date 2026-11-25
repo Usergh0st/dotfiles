@@ -72,40 +72,40 @@ return {
             color_overrides = {
                 mocha = {
                     -- Background
-                    base   = "#141110", -- alacritty: primary.background
-                    mantle = "#100e0d", -- derivado: base -10%
-                    crust  = "#0c0b0a", -- derivado: base -20%
+                    base   = "#070807", -- alacritty: primary.background
+                    mantle = "#0a0a0a", -- derivado: base -10%
+                    crust  = "#050505", -- derivado: base -20%
 
                     -- Text
-                    text     = "#c4c3c3", -- alacritty: primary.foreground
-                    subtext1 = "#99928e", -- mezcla 50% foreground + 50% normal.white
-                    subtext0 = "#6e615a", -- alacritty: normal.white
+                    text     = "#c1c1c5", -- alacritty: primary.foreground
+                    subtext1 = "#a8a8b2", -- mezcla 50% foreground + 50% normal.white
+                    subtext0 = "#7a7a84", -- alacritty: normal.white
 
                     -- Surfaces / overlays (UI)
-                    surface0 = "#251c1a", -- alacritty: bright.white
-                    surface1 = "#373634", -- alacritty: bright.cyan
-                    surface2 = "#564c47", -- alacritty: bright.black
-                    overlay0 = "#625650", -- mezcla 50% surface2 + 50% normal.white
-                    overlay1 = "#6e615a", -- alacritty: normal.white
-                    overlay2 = "#826758", -- mezcla 50% normal.white + 50% normal.black
+                    surface0 = "#1a1a22", -- alacritty: bright.white
+                    surface1 = "#2a2a32", -- alacritty: bright.cyan
+                    surface2 = "#3a3a42", -- alacritty: bright.black
+                    overlay0 = "#4a4a52", -- mezcla 50% surface2 + 50% normal.white
+                    overlay1 = "#5a5a62", -- alacritty: normal.white
+                    overlay2 = "#6a6a72", -- mezcla 50% normal.white + 50% normal.black
 
                     -- Exact terminal accents
-                    rosewater = "#c4c3c3", -- alacritty: foreground
-                    flamingo  = "#b67b4e", -- alacritty: bright.red
-                    pink      = "#be7682", -- alacritty: cursor.text / normal.yellow
-                    mauve     = "#ae907f", -- mezcla 50% normal.magenta + 50% normal.black
-                    maroon    = "#5b312c", -- alacritty: bright.magenta
-                    yellow    = "#c79475", -- alacritty: normal.green
-                    blue      = "#ceab9a", -- alacritty: normal.blue
-                    lavender  = "#c7b3a8", -- alacritty: normal.magenta
+                    rosewater = "#c1c1c5", -- alacritty: foreground
+                    flamingo  = "#b3886f", -- alacritty: normal.red (ajustado para mejor contraste)
+                    pink      = "#EADAB3", -- alacritty: cursor.text / normal.yellow
+                    mauve     = "#b8a898", -- mezcla 50% normal.magenta + 50% normal.black (ajustado para legibilidad)
+                    maroon    = "#8a7a7a", -- alacritty: bright.magenta
+                    yellow    = "#c4b09a", -- alacritty: normal.green
+                    blue      = "#B79D8F", -- alacritty: normal.blue
+                    lavender  = "#c3c3c5", -- alacritty: normal.magenta
 
                     -- Accents clarifier for readability
                     red      = "#b3886f", -- alacritty: normal.red
-                    peach    = "#b67b4e", -- alacritty: bright.red
-                    green    = "#a77c58", -- mezcla 50% normal.green + 50% bright.yellow
-                    teal     = "#ac4830", -- alacritty: bright.blue
-                    sky      = "#966d56", -- alacritty: normal.black
-                    sapphire = "#ceab9a", -- alacritty: normal.blue
+                    peach    = "#b3886f", -- alacritty: normal.red (ajustado para mejor contraste)
+                    green    = "#a8a8b2", -- alacritty: normal.yellow (ajustado para mejor legibilidad)
+                    teal     = "#a08060", -- alacritty: bright.blue (ajustado para mejor contraste)
+                    sky      = "#968587", -- alacritty: normal-black
+                    sapphire = "#d4c4b4", -- alacritty: normal.blue
                 },
              },
         })

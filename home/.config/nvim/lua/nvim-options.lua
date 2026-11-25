@@ -8,7 +8,7 @@
 -- Description - Here's the options that can use nvim.
 
 -- Line and nimbers
-vim.opt.number = false
+vim.opt.number = true
 vim.opt.relativenumber = false
 
 -- Tabs and indentation
@@ -29,7 +29,7 @@ vim.opt.mouse = 'a'
 vim.opt.clipboard = 'unnamedplus';
 
 -- Status line
-vim.opt.showmode = true
+vim.opt.showmode = false
 
 -- Requiere font
 vim.g.have_nerd_font = true

@@ -40,9 +40,9 @@ return {
         dashboard.section.buttons.val = {
             dashboard.button("n", " " .. " New file", [[<cmd> ene <BAR> startinsert <cr>]]),
             dashboard.button("f", " " .. " Find file", "<cmd> Telescope find_files <cr>"),
-            dashboard.button("r", " " .. " Recent files", [[<cmd> Telescope oldfiles <cr>]]),
-            dashboard.button("b", "󰘍 " .. " Recent Buffers", "<cmd> Telescope buffers <cr>"),
-            dashboard.button("g", " " .. " Find text", [[<cmd> Telescope live_grep <cr>]]),
+            dashboard.button("r", " " .. " Recent files", [[<cmd> Telescope oldfiles hidden=true <cr>]]),
+            dashboard.button("b", "󰘍 " .. " Recent Buffers", "<cmd> Telescope buffers hidden=true <cr>"),
+            dashboard.button("g", " " .. " Find text", [[<cmd> Telescope live_grep hidden=true <cr>]]),
             dashboard.button("c", " " .. " Config", "<cmd> Telescope find_files cwd=~/.config/nvim hidden=true<CR>"),
             dashboard.button("h", "❤ " .. " Health", ":checkhealth<CR>"),
             dashboard.button("l", "󰒲 " .. " Lazy", "<cmd> Lazy <cr>"),
