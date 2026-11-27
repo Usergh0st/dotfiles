@@ -74,7 +74,7 @@ zshaddhistory () {
 HISTFILE=${XDG_CONFIG_HOME}/zsh/zsh_history
 HISTSIZE=500
 SAVEHIST=500
-HISTDUP=erase
+setopt HISTDUP=erase
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -127,6 +127,8 @@ else
 fi
 
 # The really custom aliases.
+# Shot in one letter.
+alias t="tmux"
 alias v="nvim"
 alias n="nano"
 
