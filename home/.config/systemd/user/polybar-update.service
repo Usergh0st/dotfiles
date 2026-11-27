@@ -3,3 +3,6 @@ Description=Update polybar updates hook
 
 [Service]
 ExecStart=/usr/bin/polybar-msg action updates hook 0
+
+[Install]
+WantedBy=default.target
